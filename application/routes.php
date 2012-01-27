@@ -76,6 +76,21 @@ Filter::register('after', function()
 	// Do stuff after every request to your application...
 });
 
+Filter::register('layout', function($response, $type = 'html')
+{
+	// Redirects have no content and errors handle their own layout.
+	if ($response->status > 300) return;
+
+	switch ($type)
+	{
+		case 'html':
+			$response->content = View::make('layout', array(
+				'content' => $response->content,
+			))->render();
+		break;
+	}
+});
+
 Filter::register('csrf', function()
 {
 	if (Request::forged()) return Response::error('500');

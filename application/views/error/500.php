@@ -1,93 +1,33 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
 
-		<title>Error 500 - Internal Server Error</title>
+	<title>Internal Server Error - Phill Sparks</title>
 
-		<style>
-			@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+	<meta name="author" content="Phill Sparks">
+	<meta name="copyright" content="Copyright (c) Leicestershire County Scout Council. All rights reserved.">
+	<meta name="generator" content="Laravel/2.0.4 (laravel.com)">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
 
-			body {
-				background: #eee;
-				color: #6d6d6d;
-				font: normal normal normal 14px/1.253 Ubuntu, sans-serif;
-				margin: 0 0 25px 0;
-				min-width: 800px;
-				padding: 0;
-			}
+	<link href="<?php echo URL::to_asset('favicon.ico'); ?>" type="image/x-icon" rel="shortcut icon">
+	<link href="<?php echo URL::to_asset('css/phills.css'); ?>" rel="stylesheet" type="text/css">
 
-			#main {
-				background-clip: padding-box;
-				background-color: #fff;
-				border:1px solid #ccc;
-				border-radius: 5px;
-				box-shadow: 0 0 10px #cdcdcd;
-				margin: 25px auto 0;
-				padding: 30px;
-				width: 700px;
-				position: relative;
-			}
+	<!--[if IE]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
 
-			#main h1 {
-				font-family: 'Ubuntu';
-				font-size: 38px;
-				letter-spacing: 2px;
-				margin: 0 0 10px 0;
-				padding: 0;
-			}
+	<header><div class="container">
+		<h1><a href="<?php echo URL::to("/"); ?>">Phill S<small>parks</small></a></h1>
+	</div></header>
 
-			#main h2 {
-				color: #999;
-				font-size: 18px;
-				letter-spacing: 3px;
-				margin: 0 0 25px 0;
-				padding: 0 0 0 0;
-			}
+	<div class="container">
+		<section>
 
-			#main h3 {
-				color: #999;
-				margin-top: 24px;
-				padding: 0 0 0 0;
-			}
+			<h1>Internal Server Error <small>Error 500</small></h1>
 
-			#main h3 {
-				font-size: 18px;
-			}
-
-			#main p {
-				line-height: 25px;
-				margin: 10px 0;
-			}
-
-			#main pre {
-				background-color: #333;
-				border-left: 1px solid #d8d8d8;
-				border-top: 1px solid #d8d8d8;
-				border-radius: 5px;
-				color: #eee;
-				padding: 10px;
-			}
-
-			#main ul {
-				margin: 10px 0;
-				padding: 0 30px;
-			}
-
-			#main li {
-				margin: 5px 0;
-			}
-		</style>
-	</head>
-	<body>
-		<div id="main">
-			<?php $messages = array('Ouch.', 'Oh no!', 'Whoops!'); ?>
-
-			<h1><?php echo $messages[mt_rand(0, 2)]; ?></h1>
-
-			<h2>Server Error: 500 (Internal Server Error)</h2>
-
-			<h3>What does this mean?</h3>
+			<h2>What does this mean?</h2>
 
 			<p>
 				Something went wrong on our servers while we were processing your request.
@@ -98,6 +38,18 @@
 			<p>
 				Perhaps you would like to go to our <?php echo HTML::link('/', 'home page'); ?>?
 			</p>
-		</div>
-	</body>
+
+		</section>
+	</div>
+
+	<footer class="footer container" id="bottom">
+		<p class="pull-right"><a href="#">Back to top</a></p>
+		<p>
+			&copy; <a href="http://phills.me.uk/" class="fn url">Phill Sparks</a>. All rights reserved.
+
+			Made by <a href="http://phills.me.uk">Phill Sparks</a>.
+			Powered by <a href="http://laravel.com">Laravel</a>.
+		</p>
+	</footer>
+</body>
 </html>
