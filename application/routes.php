@@ -33,10 +33,12 @@
 |
 */
 
-Router::register(array('GET /', 'GET /home'), function()
+Router::register('GET /', function()
 {
-	return View::make('home.index');
+	return Redirect::to('about');
 });
+
+Router::register('GET /(about)',   array('after' => 'layout', 'uses' => 'markdown::page@show'));
 
 /*
 |--------------------------------------------------------------------------
