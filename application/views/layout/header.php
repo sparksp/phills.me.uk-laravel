@@ -26,6 +26,7 @@
 		<h1><a href="<?php echo URL::to("/"); ?>">Phill S<small>parks</small></a></h1>
 		<nav><?php echo Menu\Menu::make(array('class' => 'menu'))
 			->add("/about", "About")
+			->add("/snip", "Snips")
 			->get();
 		?><ul class="social pull-right">
 			<li class="delicious"><a href="http://delicious.com/P.Sparks" rel="me" title="Share with P.Sparks on Delicious">Delicious</a></li>
