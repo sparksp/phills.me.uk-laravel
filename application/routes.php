@@ -39,6 +39,7 @@ Router::register('GET /', function()
 });
 
 Router::register('GET /(about)',   array('after' => 'layout', 'uses' => 'markdown::page@show'));
+Router::register('GET /(cookies)', array('after' => 'layout', 'uses' => 'markdown::page@show'));
 
 /*
 |--------------------------------------------------------------------------
