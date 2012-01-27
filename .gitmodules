@@ -10,3 +10,6 @@
 [submodule "bundles/menu"]
 	path = bundles/menu
 	url = https://github.com/sparksp/laravel-html-menu.git
+[submodule "bundles/twitter"]
+	path = bundles/twitter
+	url = https://github.com/sparksp/laravel-twitter.git
