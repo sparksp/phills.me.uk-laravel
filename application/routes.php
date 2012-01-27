@@ -35,6 +35,7 @@
 
 Router::register('GET /', function()
 {
+	Session::reflash();
 	return Redirect::to('about');
 });
 
@@ -82,7 +83,7 @@ Filter::register('after', function()
 Filter::register('layout', function($response, $type = 'html')
 {
 	// Redirects have no content and errors handle their own layout.
-	if ($response->status > 300) return;
+	if ($response->status > 300 and $response->layout !== true) return;
 
 	switch ($type)
 	{
@@ -96,10 +97,10 @@ Filter::register('layout', function($response, $type = 'html')
 
 Filter::register('csrf', function()
 {
-	if (Request::forged()) return Response::error('500');
+	if (Request::forged()) return Response::error(500);
 });
 
 Filter::register('auth', function()
 {
-	if (Auth::guest()) return Redirect::to('login');
+	if (Auth::guest()) return Response::error(403);
 });
