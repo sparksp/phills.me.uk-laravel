@@ -4,3 +4,6 @@
 [submodule "bundles/markdown"]
 	path = bundles/markdown
 	url = https://github.com/sparksp/laravel-markdown.git
+[submodule "bundles/syntaxhighlighter"]
+	path = bundles/syntaxhighlighter
+	url = https://github.com/sparksp/laravel-syntaxhighlighter.git
