@@ -14,7 +14,7 @@ return array(
 	|
 	*/
 
-	'default' => 'mysql',
+	'default' => 'sqlite',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -40,51 +40,5 @@ return array(
 			'database' => 'application',
 		),
 
-		'mysql' => array(
-			'driver'   => 'mysql',
-			'host'     => 'localhost',
-			'database' => 'database',
-			'username' => 'root',
-			'password' => 'password',
-			'charset'  => 'utf8',
-		),
-
-		'pgsql' => array(
-			'driver'   => 'pgsql',
-			'host'     => 'localhost',
-			'database' => 'database',
-			'username' => 'root',
-			'password' => 'password',
-			'charset'  => 'utf8',
-		),
-
-		'sqlsrv' => array(
-			'driver'   => 'sqlsrv',
-			'host'     => 'localhost',
-			'database' => 'database',
-			'username' => 'root',
-			'password' => 'password',
-		),
-
 	),
-
-	/*
-	|--------------------------------------------------------------------------
-	| Redis Databases
-	|--------------------------------------------------------------------------
-	|
-	| Redis is an open source, fast, and advanced key-value store. However, it
-	| provides a richer set of commands than a typical key-value store such as
-	| APC or memcached. All the cool kids are using it.
-	|
-	| To get the scoop on Redis, check out: http://redis.io
-	|
-	*/
-
-	'redis' => array(
-
-		'default' => array('host' => '127.0.0.1', 'port' => 6379),
-
-	),
-
 );
