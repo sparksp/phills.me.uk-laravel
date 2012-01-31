@@ -192,7 +192,7 @@ class Migrator extends Task {
 		// is a better way of ordering migrations than a simple integer
 		// incrementation, since developers may start working on the
 		// next migration at the same time unknowingly.
-		$prefix = date('Y_m_d');
+		$prefix = date('Y_m_d_His');
 
 		$path = Bundle::path($bundle).'migrations'.DS;
 
@@ -222,7 +222,7 @@ class Migrator extends Task {
 	 */
 	protected function stub($bundle, $migration)
 	{
-		$stub = File::get($GLOBALS['SYS_PATH'].'cli/tasks/migrate/stub'.EXT);
+		$stub = File::get(path('sys').'cli/tasks/migrate/stub'.EXT);
 
 		// The class name is formatted simialrly to tasks and controllers,
 		// where the bundle name is prefixed to the class if it is not in

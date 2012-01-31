@@ -1,4 +1,4 @@
-<?php namespace Laravel; isset($GLOBALS['APP_PATH']) or die('No direct script access.');
+<?php namespace Laravel; defined('DS') or die('No direct script access.');
 
 class Autoloader {
 
@@ -60,11 +60,6 @@ class Autoloader {
 		{
 			$namespace = substr($class, 0, $slash);
 
-			if ($namespace == 'Laravel')
-			{
-				return static::load_psr($class, $GLOBALS['BASE_PATH']);
-			}
-
 			// If the class namespace is mapped to a directory, we will load the class
 			// using the PSR-0 standards from that directory; however, we will trim
 			// off the beginning of the namespace to account for files in the root
@@ -84,7 +79,6 @@ class Autoloader {
 			// their class mappings have actually been registered; however, it
 			// is up to the bundle developer to namespace their classes to
 			// match the name of their bundle.
-			
 			if (Bundle::exists($namespace) and ! Bundle::started($namespace))
 			{
 				Bundle::start(strtolower($namespace));
@@ -150,7 +144,7 @@ class Autoloader {
 	 *
 	 * <code>
 	 *		// Register a class mapping with the Autoloader
-	 *		Autoloader::map(array('User' => $GLOBALS['APP_PATH'].'models/user.php'));
+	 *		Autoloader::map(array('User' => path('app').'models/user.php'));
 	 * </code>
 	 *
 	 * @param  array  $mappings
