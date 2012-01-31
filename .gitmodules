@@ -7,9 +7,9 @@
 [submodule "bundles/syntaxhighlighter"]
 	path = bundles/syntaxhighlighter
 	url = https://github.com/sparksp/laravel-syntaxhighlighter.git
-[submodule "bundles/menu"]
-	path = bundles/menu
-	url = https://github.com/sparksp/laravel-html-menu.git
 [submodule "bundles/twitter"]
 	path = bundles/twitter
 	url = https://github.com/sparksp/laravel-twitter.git
+[submodule "bundles/topos"]
+	path = bundles/topos
+	url = git@github.com:sparksp/laravel-html-menu.git

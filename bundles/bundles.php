@@ -39,7 +39,7 @@ return array(
 	),
 	'eloquent',
 	'markdown',
-	'menu',
+	'topos',
 	'snip' => array(
 		'handles' => 'snip',
 	),

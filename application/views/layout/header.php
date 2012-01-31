@@ -24,7 +24,7 @@
 
 	<header><div class="container">
 		<h1><a href="<?php echo URL::to("/"); ?>">Phill S<small>parks</small></a></h1>
-		<nav><?php echo Menu\Menu::make(array('class' => 'menu'))
+		<nav><?php echo Topos\Menu::make(array('class' => 'menu'))
 			->add("/about", "About")
 			->add("/snip", "Snips")
 			->get();
