@@ -1,7 +1,7 @@
-		</section>
+
 	</div>
 
-	<footer class="footer container" id="bottom">
+	<footer class="mastfoot container" id="bottom">
 		<p class="pull-right"><a href="#">Back to top</a></p>
 <?php if (count($_COOKIE)): ?>
 		<p class="pull-right"><?php echo HTML::link('cookies', 'Read about how we use cookies'); ?>.</p>

@@ -22,11 +22,12 @@
 </head>
 <body>
 
-	<header><div class="container">
+	<header class="masthead"><div class="container">
 		<h1><a href="<?php echo URL::to("/"); ?>">Phill S<small>parks</small></a></h1>
 		<nav><?php echo Topos\Menu::make(array('class' => 'menu'))
 			->add("/about", "About")
-			->add("/snip", "Snips")
+			->add_if(Topos\Menu::isActiveURL('snip'), "/snip", "Snips")
+			->add('/web', 'Web')
 			->get();
 		?><ul class="social pull-right">
 			<li class="delicious"><a href="http://delicious.com/P.Sparks" rel="me" title="Share with P.Sparks on Delicious">Delicious</a></li>
@@ -41,7 +42,6 @@
 	<?php echo Section::yield('breadcrumbs'); ?>
 
 	<div id="body" class="container">
-		<section>
 
 		<?php if (Session::has('message')): ?>
 			<div class="alert alert-info"><?php echo Session::get('message'); ?></div>
