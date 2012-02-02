@@ -26,6 +26,7 @@
 		<h1><a href="<?php echo URL::to("/"); ?>">Phill S<small>parks</small></a></h1>
 		<nav><?php echo Topos\Menu::make(array('class' => 'menu'))
 			->add("/about", "About")
+			->add('http://sparksp.github.com/', 'GitHub')
 			->add_if(Topos\Menu::isActiveURL('snip'), "/snip", "Snips")
 			->add('/web', 'Web')
 			->get();
