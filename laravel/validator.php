@@ -427,7 +427,9 @@ class Validator {
 		// fine for the given ID to exist in the table.
 		if (isset($parameters[2]))
 		{
-			$query->where('id', '<>', $parameters[2]);
+			$id = (isset($parameters[3])) ? $parameters[3] : 'id';
+
+			$query->where($id, '<>', $parameters[2]);
 		}
 
 		return $query->count() == 0;
@@ -602,9 +604,15 @@ class Validator {
 		// First we'll check for developer specified, attribute specific messages.
 		// These messages take first priority. They allow the fine-grained tuning
 		// of error messages for each rule.
-		if (array_key_exists($attribute.'_'.$rule, $this->messages))
+		$custom = $attribute.'_'.$rule;
+
+		if (array_key_exists($custom, $this->messages))
 		{
-			return $this->messages[$attribute.'_'.$rule];
+			return $this->messages[$custom];
+		}
+		elseif (Lang::has($custom = "validation.custom.{$custom}", $this->language))
+		{
+			return Lang::line($custom)->get($this->language);
 		}
 
 		// Next we'll check for developer specified, rule specific error messages.
