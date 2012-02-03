@@ -42,7 +42,7 @@ abbr {
 
 header.masthead {
 	background-color: #F5F4EF;
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #ddd;
 	margin-bottom: 1em;
 }
 
@@ -62,62 +62,36 @@ header.masthead h1 {
 }
 
 header.masthead nav {
-	line-height: 1.6;
 	margin-top: 1em;
 	margin-bottom: -1px;
-	padding: 0;
-	text-align: center;
-	width: 100%;
 	overflow: hidden; /* opera sometimes shows scrollbars with auto */
-	white-space: nowrap;
 
-	ul { list-style: none; margin: 0; }
-	li { float: left; display: inline; margin: 0; }
-
-	.menu {
-		a {
-			display: inline-block;
-			height: 1.5;
-			padding: 0.5em 1em;
-			text-decoration: none;
-			margin-right: 0.5em;
-
-			border-width: 1px;
-			border-style: solid;
-			border-color: transparent;
-			border-radius: 0.5em 0.5em 0 0;
-		}
-		a:hover, a:active,
-		.active a {
-			background-color: #fff;
-			border-color: #eee;
-		}
-		.active a {
-			border-bottom-color: #fff;
-		}
+	li > a:hover {
+		background-color: white;
 	}
 
-	.social {
-		a {
-			background: transparent url(../img/social-32.png) 0 0 no-repeat;
-			text-indent: -9999px; overflow: hidden;
-			display: inline-block;
-			height: 32px;
-			width:  32px;
+	.social > li {
+		float: left;
 
+		> a {
+			background: transparent url(../img/social-32.png) 0 0 no-repeat;
 			padding: 0;
 			margin: 0 0 0 8px;
+			.square(32px);
+
+			/* Hide the text */
+			text-indent: -9999px; overflow: hidden;
 		}
 
-		.delicious a { background-position:    0   0; }
-		.facebook  a { background-position:  -32px 0; }
-		.flickr    a { background-position:  -64px 0; }
-		.twitter   a { background-position:  -96px 0; }
-		.youtube   a { background-position: -128px 0; }
-		.lastfm    a { background-position: -160px 0; }
+		&.delicious > a { background-position:    0   0; }
+		&.facebook  > a { background-position:  -32px 0; }
+		&.flickr    > a { background-position:  -64px 0; }
+		&.twitter   > a { background-position:  -96px 0; }
+		&.youtube   > a { background-position: -128px 0; }
+		&.lastfm    > a { background-position: -160px 0; }
 	}
 
-	.pull-right {
+	.pull-right, .pull-left {
 		margin: 0;
 	}
 }

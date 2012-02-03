@@ -110,11 +110,11 @@ body {
   background-color: #ffffff;
 }
 a {
-  color: #cc6600;
+  color: #d56e22;
   text-decoration: none;
 }
 a:hover {
-  color: #ff9933;
+  color: #d56e22;
   text-decoration: underline;
 }
 .row {
@@ -1584,7 +1584,7 @@ table .span12 {
 .dropdown-menu li > a:hover, .dropdown-menu .active > a, .dropdown-menu .active > a:hover {
   color: #ffffff;
   text-decoration: none;
-  background-color: #cc6600;
+  background-color: #d56e22;
 }
 .dropdown.open {
   *z-index: 1000;
@@ -1769,16 +1769,16 @@ table .span12 {
   color: rgba(255, 255, 255, 0.75);
 }
 .btn-primary {
-  background-color: #cc8100;
-  background-image: -moz-linear-gradient(top, #cc6600, #ccaa00);
-  background-image: -ms-linear-gradient(top, #cc6600, #ccaa00);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#cc6600), to(#ccaa00));
-  background-image: -webkit-linear-gradient(top, #cc6600, #ccaa00);
-  background-image: -o-linear-gradient(top, #cc6600, #ccaa00);
-  background-image: linear-gradient(top, #cc6600, #ccaa00);
+  background-color: #d58622;
+  background-image: -moz-linear-gradient(top, #d56e22, #d5aa22);
+  background-image: -ms-linear-gradient(top, #d56e22, #d5aa22);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#d56e22), to(#d5aa22));
+  background-image: -webkit-linear-gradient(top, #d56e22, #d5aa22);
+  background-image: -o-linear-gradient(top, #d56e22, #d5aa22);
+  background-image: linear-gradient(top, #d56e22, #d5aa22);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc6600', endColorstr='#ccaa00', GradientType=0);
-  border-color: #ccaa00 #ccaa00 #806a00;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d56e22', endColorstr='#d5aa22', GradientType=0);
+  border-color: #d5aa22 #d5aa22 #937517;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
@@ -1787,10 +1787,10 @@ table .span12 {
 .btn-primary.active,
 .btn-primary.disabled,
 .btn-primary[disabled] {
-  background-color: #ccaa00;
+  background-color: #d5aa22;
 }
 .btn-primary:active, .btn-primary.active {
-  background-color: #998000 \9;
+  background-color: #a9871b \9;
 }
 .btn-warning {
   background-color: #faa732;
@@ -2118,7 +2118,7 @@ button.btn.small, input[type="submit"].btn.small {
 .nav-list .active > a {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  background-color: #cc6600;
+  background-color: #d56e22;
 }
 .nav-list .icon {
   margin-right: 2px;
@@ -2180,7 +2180,7 @@ button.btn.small, input[type="submit"].btn.small {
 }
 .nav-pills .active > a, .nav-pills .active > a:hover {
   color: #ffffff;
-  background-color: #cc6600;
+  background-color: #d56e22;
 }
 .nav-stacked > li {
   float: none;
@@ -2227,11 +2227,11 @@ button.btn.small, input[type="submit"].btn.small {
   border-radius: 4px;
 }
 .nav-tabs .dropdown-toggle .caret, .nav-pills .dropdown-toggle .caret {
-  border-top-color: #cc6600;
+  border-top-color: #d56e22;
   margin-top: 6px;
 }
 .nav-tabs .dropdown-toggle:hover .caret, .nav-pills .dropdown-toggle:hover .caret {
-  border-top-color: #ff9933;
+  border-top-color: #d56e22;
 }
 .nav-tabs .active .dropdown-toggle .caret, .nav-pills .active .dropdown-toggle .caret {
   border-top-color: #333333;
@@ -3037,7 +3037,7 @@ button.btn.small, input[type="submit"].btn.small {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 a.thumbnail:hover {
-  border-color: #cc6600;
+  border-color: #d56e22;
   -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
@@ -3371,11 +3371,11 @@ a.thumbnail:hover {
   visibility: hidden;
 }
 ::-moz-selection {
-  background-color: #cc6600;
+  background-color: #d56e22;
   color: white;
 }
 ::selection {
-  background-color: #cc6600;
+  background-color: #d56e22;
   color: white;
 }
 h1,
@@ -3401,7 +3401,7 @@ abbr {
 }
 header.masthead {
   background-color: #F5F4EF;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ddd;
   margin-bottom: 1em;
 }
 header.masthead h1 {
@@ -3418,73 +3418,48 @@ header.masthead h1 small {
   color: #999;
 }
 header.masthead nav {
-  line-height: 1.6;
   margin-top: 1em;
   margin-bottom: -1px;
-  padding: 0;
-  text-align: center;
-  width: 100%;
   overflow: hidden;
   /* opera sometimes shows scrollbars with auto */
 
-  white-space: nowrap;
 }
-header.masthead nav ul {
-  list-style: none;
-  margin: 0;
+header.masthead nav li > a:hover {
+  background-color: white;
 }
-header.masthead nav li {
+header.masthead nav .social > li {
   float: left;
-  display: inline;
-  margin: 0;
 }
-header.masthead nav .menu a {
-  display: inline-block;
-  height: 1.5;
-  padding: 0.5em 1em;
-  text-decoration: none;
-  margin-right: 0.5em;
-  border-width: 1px;
-  border-style: solid;
-  border-color: transparent;
-  border-radius: 0.5em 0.5em 0 0;
-}
-header.masthead nav .menu a:hover, header.masthead nav .menu a:active, header.masthead nav .menu .active a {
-  background-color: #fff;
-  border-color: #eee;
-}
-header.masthead nav .menu .active a {
-  border-bottom-color: #fff;
-}
-header.masthead nav .social a {
+header.masthead nav .social > li > a {
   background: transparent url(../img/social-32.png) 0 0 no-repeat;
-  text-indent: -9999px;
-  overflow: hidden;
-  display: inline-block;
-  height: 32px;
-  width: 32px;
   padding: 0;
   margin: 0 0 0 8px;
+  width: 32px;
+  height: 32px;
+  /* Hide the text */
+
+  text-indent: -9999px;
+  overflow: hidden;
 }
-header.masthead nav .social .delicious a {
+header.masthead nav .social > li.delicious > a {
   background-position: 0   0;
 }
-header.masthead nav .social .facebook a {
+header.masthead nav .social > li.facebook > a {
   background-position: -32px 0;
 }
-header.masthead nav .social .flickr a {
+header.masthead nav .social > li.flickr > a {
   background-position: -64px 0;
 }
-header.masthead nav .social .twitter a {
+header.masthead nav .social > li.twitter > a {
   background-position: -96px 0;
 }
-header.masthead nav .social .youtube a {
+header.masthead nav .social > li.youtube > a {
   background-position: -128px 0;
 }
-header.masthead nav .social .lastfm a {
+header.masthead nav .social > li.lastfm > a {
   background-position: -160px 0;
 }
-header.masthead nav .pull-right {
+header.masthead nav .pull-right, header.masthead nav .pull-left {
   margin: 0;
 }
 footer.mastfoot {

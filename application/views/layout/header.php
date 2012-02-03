@@ -24,13 +24,13 @@
 
 	<header class="masthead"><div class="container">
 		<h1><a href="<?php echo URL::to("/"); ?>">Phill S<small>parks</small></a></h1>
-		<nav><?php echo Topos\Menu::make(array('class' => 'menu'))
+		<nav><?php echo Topos\Menu::make(array('class' => 'nav nav-tabs pull-left'))
 			->add("/about", "About")
 			->add('http://sparksp.github.com/', 'GitHub')
 			->add_if(Topos\Menu::isActiveURL('snip'), "/snip", "Snips")
 			->add('/web', 'Web')
 			->get();
-		?><ul class="social pull-right">
+		?><ul class="nav social pull-right">
 			<li class="delicious"><a href="http://delicious.com/P.Sparks" rel="me" title="Share with P.Sparks on Delicious">Delicious</a></li>
 			<li class="facebook"><a href="http://facebook.com/sparks.phill" rel="me" title="Find Phill Sparks on Facebook">Facebook</a></li>
 			<li class="flickr"><a href="http://flickr.com/photos/webmilk" rel="me" title="Find webmilk on Flickr">Flickr</a></li>
