@@ -502,6 +502,8 @@ pre.prettyprint {
 pre code {
   padding: 0;
   background-color: transparent;
+  border: none;
+  color: #333333;
 }
 form {
   margin: 0 0 18px;
