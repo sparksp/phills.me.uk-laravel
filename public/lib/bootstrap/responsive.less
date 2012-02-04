@@ -17,8 +17,8 @@
 // -------------------------
 // Required since we compile the responsive stuff separately
 
-@import "variables.less"; // Modify this for custom colors, font-sizes, etc
-@import "mixins.less";
+/*@import "variables.less"; // Modify this for custom colors, font-sizes, etc*/
+/*@import "mixins.less";*/
 
 
 // RESPONSIVE CLASSES
@@ -137,7 +137,7 @@
   }
   // Undo negative margin on rows
   .row {
-    margin-left: 0;
+    margin-left: 0 !important;
   }
   // Make all columns even
   .row > [class*="span"],
