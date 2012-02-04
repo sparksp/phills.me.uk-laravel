@@ -109,7 +109,7 @@ header.subhead  h1 {
 		section {
 			padding-top: @gridColumnWidth;
 		}
-		.page-about h2 small {
+		#page-about h2 small {
 			width: @gridColumnWidth + @gridColumnWidth + @gridGutterWidth;
 			margin-right: @gridGutterWidth;
 		}
@@ -134,10 +134,19 @@ header.subhead  h1 {
 	}
 }
 
+@media (max-width: 980px) {
+	#page-about .lead {
+		margin-bottom: 9px;
+	}
+}
+
 @media (min-width: 980px) {
-	.page-about h2 small {
+	#page-about h2 small {
 		float: left;
 		text-align: right;
+	}
+	#page-about .lead-group {
+		margin-top: 9px;
 	}
 	#page-about > .generate(@gridColumnWidth, @gridGutterWidth);
 }
