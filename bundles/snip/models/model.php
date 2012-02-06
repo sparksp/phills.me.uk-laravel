@@ -1,12 +1,12 @@
 <?php namespace Snip;
 
 use Eloquent\Model as Eloquent;
-use Auth, Input, Str, Validator;
+use Auth, Input, Str, Validator, URL;
 
 /**
  * A Snip is a bit of code.
  */
-class Snip extends Eloquent {
+class Model extends Eloquent {
 	
 	/**
 	 * @var boolean
@@ -99,6 +99,22 @@ class Snip extends Eloquent {
 	public function user()
 	{
 		return $this->belongs_to('User\\User');
+	}
+
+	/**
+	 * Gets the URL for this snip.
+	 */
+	public function url()
+	{
+		return URL::to('snips/snip-'.$this->id.'-'.Str::slug($this->title, '-'));
+	}
+
+	/**
+	 * Gets the URI for this snip.
+	 */
+	public function uri()
+	{
+		return 'snips/snip-'.$this->id;
 	}
 
 }
