@@ -1,6 +1,6 @@
 <?php
 
-Router::register('GET /web', array('after' => 'layout', function()
+Router::register('GET /projects', array('after' => 'layout', function()
 {
 	$articles = array(
 		array('title' => 'My Charnwood', 'image' => 'My-Charnwood-2012.png', 'summary' => array(
@@ -24,12 +24,12 @@ Router::register('GET /web', array('after' => 'layout', function()
 	);
 
 	$category = new stdClass;
-	$category->title = 'Web Projects';
+	$category->title = 'Projects';
 	$category->intro = 'I have worked on many projects, here is a selection of the projects I have had a noticable impact on.';
 
 	View::share('title', $category->title);
 
-	return View::make('web::list', array(
+	return View::make('project::list', array(
 		'articles' => $articles,
 		'category' => $category,
 	));

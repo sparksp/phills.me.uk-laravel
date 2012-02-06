@@ -21,7 +21,7 @@
 <?php endif; ?>
 			</div>
 			<div class="span9">
-				<?php echo HTML::image(URL::to_asset('bundles/web/img/'.$article['image']), $article['title'], array('style' => 'width: 100%')); ?>
+				<?php echo HTML::image(URL::to_asset('bundles/project/img/'.$article['image']), $article['title'], array('style' => 'width: 100%')); ?>
 			</div>
 		</div>
 	</section>
