@@ -22,6 +22,19 @@ Router::register('GET /projects', array('after' => 'layout', function()
 			'The success of the online booking form will be carried forward to next year\'s High Adventure and other events, providing a consistent and flexible booking experience for both participants and organisers.',
 			'The event has had a strong Facebook and Twitter presence from the start with design elements being shared with both, as much as possible.',
 		), 'href' => 'http://womble.me.uk/'),
+		array('title' => 'Pantheon (iPad)', 'image' => 'Pantheon.jpg', 'summary' => array(
+			HTML::image(URL::to_asset('bundles/project/img/by-cuttlefish-app.png'), 'App developed by Cuttlefish'),
+			'This app was built for Pantheon\'s 2011 Annual Investor Meeting. Installed on strategically-placed iPads, it was used throughout the conference weekend to provide information to and gather feedback from attendees.</p>'.
+			'<p>Features include:</p><ul>'.
+				'<li>A 10 question survey</li>'.
+				'<li>A short feedback form</li>'.
+				'<li>A photo gallery, downloaded from the web on launch</li>'.
+				'<li>A tabbed screen of event information</li>'.
+				'<li>2 map screens with information points</li>'.
+			'</ul>'.
+			'<p>The app was written in JavaScript using the Appcelerator Titanium mobile SDK.</p>'.
+			'<p>This app is not available in the AppStore.',
+		)),
 	);
 
 	$category = new stdClass;
