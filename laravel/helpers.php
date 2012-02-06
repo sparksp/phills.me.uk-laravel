@@ -26,7 +26,7 @@ function __($key, $replacements = array(), $language = null)
 	return Laravel\Lang::line($key, $replacements, $language);
 }
 
-/**a
+/**
  * Get an item from an array using "dot" notation.
  *
  * <code>
@@ -362,4 +362,26 @@ function str_contains($haystack, $needle)
 function value($value)
 {
 	return ($value instanceof Closure) ? call_user_func($value) : $value;
+}
+
+/**
+ * Short-cut for constructor method chaining.
+ *
+ * @param  mixed  $object
+ * @return mixed
+ */
+function with($object)
+{
+	return $object;
+}
+
+/**
+ * Determine if the current version of PHP is at least the supplied version.
+ *
+ * @param  string  $version
+ * @return bool
+ */
+function has_php($version)
+{
+	return version_compare(PHP_VERSION, $version) >= 0;
 }
