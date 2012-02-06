@@ -46,7 +46,7 @@ return array(
 	'syntaxhighlighter',
 	'twitter',
 	'user',
-	'web' => array(
-		'handles' => 'web',
+	'project' => array(
+		'handles' => 'projects',
 	),
 );
