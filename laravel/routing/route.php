@@ -53,7 +53,6 @@ class Route {
 	{
 		$this->key = $key;
 		$this->action = $action;
-		$this->parameters = $parameters;
 
 		// Extract each URI from the route key. Since the route key has the request
 		// method, we will extract that from the string. If the URI points to the
@@ -63,10 +62,11 @@ class Route {
 		$this->uris = array_map(array($this, 'extract'), $uris);
 
 		// Determine the bundle in which the route was registered. We will know
-		// the bundle by the first segment of the route's URI. We need to know
-		// the bundle so we know if we need to run a bundle's global filters
-		// when executing the route.
-		$this->bundle = Bundle::resolve(head(explode('/', $this->uris[0])));
+		// the bundle by feeding the URI into the bundle::handles method, which
+		// will return the bundle assigned to that URI.
+		$this->bundle = Bundle::handles($this->uris[0]);
+
+		$this->parameters = array_map('urldecode', $parameters);
 	}
 
 	/**
@@ -141,15 +141,11 @@ class Route {
 	 *
 	 * If the route belongs to a bundle, the bundle's global filters are returned too.
 	 *
-	 * @param  string  $filter
+	 * @param  string  $event
 	 * @return array
 	 */
 	protected function filters($event)
 	{
-		// Add the global filters to the array. We will also attempt to add
-		// the bundle's global filter as well. However, we'll need to keep
-		// the array unique since the default bundle's global filter will
-		// be the same as the application's global filter.
 		$filters = array_unique(array($event, Bundle::prefix($this->bundle).$event));
 
 		// Next wee will check to see if there are any filters attached

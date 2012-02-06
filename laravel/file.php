@@ -1,4 +1,4 @@
-<?php namespace Laravel; use Closure, FilesystemIterator;
+<?php namespace Laravel; use Closure, FilesystemIterator as fIterator;
 
 class File {
 
@@ -93,7 +93,7 @@ class File {
 	/**
 	 * Get the file size of a given file.
 	 *
-	 * @param  string  $file
+	 * @param  string  $path
 	 * @return int
 	 */
 	public static function size($path)
@@ -149,7 +149,7 @@ class File {
 	 *		$image = File::is(array('jpg', 'png', 'gif'), 'path/to/file');
 	 * </code>
 	 *
-	 * @param  array|string  $extension
+	 * @param  array|string  $extensions
 	 * @param  string        $path
 	 * @return bool
 	 */
@@ -175,13 +175,28 @@ class File {
 	}
 
 	/**
+	 * Move a directory from one location to another.
+	 *
+	 * @param  string  $source
+	 * @param  string  $destination
+	 * @param  int     $options
+	 * @return void
+	 */
+	public static function mvdir($source, $destination, $options = fIterator::SKIP_DOTS)
+	{
+		static::cpdir($source, $destination, true, $options);
+	}
+
+	/**
 	 * Recursively copy directory contents to another directory.
 	 *
 	 * @param  string  $source
 	 * @param  string  $destination
+	 * @param  bool    $delete
+	 * @param  int     $options
 	 * @return void
 	 */
-	public static function cpdir($source, $destination)
+	public static function cpdir($source, $destination, $delete = false, $options = fIterator::SKIP_DOTS)
 	{
 		if ( ! is_dir($source)) return;
 
@@ -190,10 +205,10 @@ class File {
 		// from the installed bundle's source directory.
 		if ( ! is_dir($destination))
 		{
-			mkdir($destination);
+			mkdir($destination, 0777, true);
 		}
 
-		$items = new FilesystemIterator($source, FilesystemIterator::SKIP_DOTS);
+		$items = new fIterator($source, $options);
 
 		foreach ($items as $item)
 		{
@@ -207,7 +222,9 @@ class File {
 			{
 				$path = $item->getRealPath();
 
-				static::cpdir($path, $location);
+				static::cpdir($path, $location, $delete, $options);
+
+				if ($delete) @rmdir($item->getRealPath());
 			}
 			// If the file system item is an actual file, we can copy the
 			// file from the bundle asset directory to the public asset
@@ -216,8 +233,67 @@ class File {
 			else
 			{
 				copy($item->getRealPath(), $location);
+
+				if ($delete) @unlink($item->getRealPath());
 			}
 		}
+
+		if ($delete) rmdir($source);
+	}
+
+	/**
+	 * Recursively delete a directory.
+	 *
+	 * @param  string  $directory
+	 * @return void
+	 */
+	public static function rmdir($directory)
+	{
+		if ( ! is_dir($directory)) return;
+
+		$items = new fIterator($directory);
+
+		foreach ($items as $item)
+		{
+			// If the item is a directory, we can just recurse into the
+			// function and delete that sub-directory, otherwise we'll
+			// just deleete the file and keep going!
+			if ($item->isDir())
+			{
+				static::rmdir($item->getRealPath());
+			}
+			else
+			{
+				@unlink($item->getRealPath());
+			}
+		}
+
+		@rmdir($directory);
+	}
+
+	/**
+	 * Get the most recently modified file in a directory.
+	 *
+	 * @param  string       $directory
+	 * @param  int          $options
+	 * @return SplFileInfo
+	 */
+	public static function latest($directory, $options = fIterator::SKIP_DOTS)
+	{
+		$time = 0;
+
+		$items = new fIterator($directory, $options);
+
+		// To get the latest created file, we'll simply spin through the
+		// directory, setting the latest file if we encounter a file
+		// with a UNIX timestamp greater than the latest one we
+		// have encountered thus far in the loop.
+		foreach ($items as $item)
+		{
+			if ($item->getMTime() > $time) $latest = $item;
+		}
+
+		return $latest;
 	}
 
 }
