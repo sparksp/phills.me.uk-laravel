@@ -41,7 +41,7 @@ return array(
 	'markdown',
 	'topos',
 	'snip' => array(
-		'handles' => 'snip',
+		'handles' => 'snips',
 	),
 	'syntaxhighlighter',
 	'twitter',

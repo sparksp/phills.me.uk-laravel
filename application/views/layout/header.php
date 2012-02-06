@@ -31,7 +31,7 @@
 			->add("/about", "About")
 			->add('http://sparksp.github.com/', 'GitHub')
 			->add('/projects', 'Projects')
-			->add_if(Topos\Menu::isActiveURL('snip'), "/snip", "Snips")
+			->add_if(Topos\Menu::isActiveURL('snips'), "/snips", "Snips")
 			->get();
 		?><ul class="nav social pull-right">
 			<li class="delicious"><a href="http://delicious.com/P.Sparks" rel="me" title="Share with P.Sparks on Delicious">Delicious</a></li>
