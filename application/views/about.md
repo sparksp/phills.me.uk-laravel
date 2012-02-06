@@ -24,13 +24,13 @@
 <h2>Assistant Youth Work Leader, Leicestershire Youth Service <small>2005 - 2011</small></h2>
 
 <div class="row"><div class="offset2 span10">
-	<p>Supporting Youth Councils with both administrative tasks (taking notes, circulating notes, etc) and supporting the Youth Workers in facilitating meetings and activities. I work closely with the young people to enable them to maintain their sections on The Jitty by training them to use the CMS tools.</p>
+	<p>Supporting Youth Councils with both administrative tasks (taking notes, circulating notes, etc.) and supporting the Youth Workers in facilitating meetings and activities. I work closely with the young people to enable them to maintain their sections on The Jitty by training them to use the CMS tools.</p>
 </div></div>
 
 <h2>Senior Sessional Support Worker, Connexions Leicester Shire <small>2004 - 2006</small></h2>
 
 <div class="row"><div class="offset2 span10">
-	<p>Supporting and leading groups of young people to carry out various activities including attending meetings.</p>
+	<p>A part-time job supporting and leading groups of young people to carry out various activities including attending meetings.</p>
 </div></div>
 
 <h2>Developer, Churchhill Systems <small>Summer 2005</small></h2>
@@ -124,7 +124,7 @@
 		<h3>Proficient</h3>
 		<ul>
 			<li>CSS</li>
-			<li>HTML4/XHTML/HTML5</li>
+			<li>HTML4 / XHTML / HTML5</li>
 			<li>JavaScript</li>
 			<li>MySQL</li>
 			<li>PHP</li>
@@ -137,7 +137,7 @@
 	</div><div class="span3">
 		<h3>Novice</h3>
 		<ul>
-			<li>C / C++ / Obj-C</li>
+			<li>C / C++ / Objective-C</li>
 			<li>Perl</li>
 			<li>Prolog</li>
 			<li>Python</li>
@@ -152,7 +152,7 @@
 		<li>Adobe Fireworks (and basic Photoshop / Illustrator)</li>
 		<li>Apache and Lighttpd</li>
 		<li>Git and SVN</li>
-		<li>Microsoft Office (inc. Word, Excel, Powerpoint)</li>
+		<li>Microsoft Office (including Word, Excel and Powerpoint)</li>
 		<li>Titanium Studio</li>
 	</ul>
 </div></div>
