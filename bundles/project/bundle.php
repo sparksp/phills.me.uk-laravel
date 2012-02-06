@@ -4,6 +4,7 @@ Router::register('GET /projects', array('after' => 'layout', function()
 {
 	$articles = array(
 		array('title' => 'My Charnwood', 'image' => 'My-Charnwood-2012.png', 'summary' => array(
+			HTML::image(URL::to_asset('bundles/project/img/by-cuttlefish.png'), 'Developed by Cuttlefish'),
 			'My Charnwood allows residents to search for information about their home and near by places of interest.',
 			'Behind the scenes we import over 50 datasets from around 10 sources, each utilising different techniques.',
 			'The data is broken down into textual information and mapable overlays and presented to the user through the "My Location" and "My Nearest" tabs.',
