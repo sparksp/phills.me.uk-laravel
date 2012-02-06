@@ -3,11 +3,14 @@
 <head>
 	<meta charset="utf-8">
 	
-	<title><?php echo $title ? "$title - Phill Sparks" : "Phill Sparks: My design skills are black, white and orange"; ?></title>
+	<title><?php echo $title ? htmlspecialchars("$title - Phill Sparks") : "Phill Sparks: My design skills are black, white and orange"; ?></title>
 
 	<meta name="author" content="Phill Sparks">
+<?php if ( ! empty($title)): ?>
+	<meta name="dc.title" content="<?php echo htmlspecialchars($title); ?>">
+<?php endif; ?>
 	<meta name="dcterms.rights" content="Copyright (c) Phill Sparks. All rights reserved.">
-	<meta name="generator" content="Laravel/2.2.0-beta-1 (laravel.com)">
+	<meta name="generator" content="Laravel/3.0 (laravel.com)">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link href="<?php echo URL::to_asset('favicon.ico'); ?>" type="image/x-icon" rel="shortcut icon">
