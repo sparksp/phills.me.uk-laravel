@@ -1,5 +1,1 @@
-<?php
-
-Autoloader::map(array(
-	'Snip\\Model' => __DIR__.DS.'models'.DS.'model'.EXT,
-));
+<?php return array('name' => 'snip', 'handles' => 'snips');
