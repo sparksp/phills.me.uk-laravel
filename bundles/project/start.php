@@ -4,7 +4,7 @@ Router::register('GET /projects', array('after' => 'layout', function()
 {
 	$articles = array(
 		array('title' => 'My Charnwood', 'image' => 'My-Charnwood-2012.png', 'summary' => array(
-			HTML::image(URL::to_asset('bundles/project/img/by-cuttlefish.png'), 'Developed by Cuttlefish'),
+			HTML::image('bundles/project/img/by-cuttlefish.png', 'Developed by Cuttlefish'),
 			'My Charnwood allows residents to search for information about their home and near by places of interest.',
 			'Behind the scenes we import over 50 datasets from around 10 sources, each utilising different techniques.',
 			'The data is broken down into textual information and mapable overlays and presented to the user through the "My Location" and "My Nearest" tabs.',
@@ -23,7 +23,7 @@ Router::register('GET /projects', array('after' => 'layout', function()
 			'The event has had a strong Facebook and Twitter presence from the start with design elements being shared with both, as much as possible.',
 		), 'href' => 'http://womble.me.uk/'),
 		array('title' => 'Pantheon (iPad)', 'image' => 'Pantheon.jpg', 'summary' => array(
-			HTML::image(URL::to_asset('bundles/project/img/by-cuttlefish-app.png'), 'App developed by Cuttlefish'),
+			HTML::image('bundles/project/img/by-cuttlefish-app.png', 'App developed by Cuttlefish'),
 			'This app was built for Pantheon\'s 2011 Annual Investor Meeting. Installed on strategically-placed iPads, it was used throughout the conference weekend to provide information to and gather feedback from attendees.</p>'.
 			'<p>Features include:</p><ul>'.
 				'<li>A 10 question survey</li>'.
