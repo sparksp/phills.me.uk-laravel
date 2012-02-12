@@ -1,6 +1,6 @@
 <?php
 
-Router::register('GET /projects', array('after' => 'layout', function()
+Route::get('projects', array('after' => 'layout', function()
 {
 	$articles = array(
 		array('title' => 'My Charnwood', 'image' => 'My-Charnwood-2012.png', 'summary' => array(

@@ -33,4 +33,14 @@
 |
 */
 
-return array();
+return array(
+	'auth' => array('handles' => 'auth'),
+	'eloquent',
+	'markdown',
+	'project' => array('handles' => 'projects'),
+	'snip' => array('handles' => 'snips'),
+	'syntaxhighlighter',
+	'topos',
+	'twitter',
+	'user',
+);
