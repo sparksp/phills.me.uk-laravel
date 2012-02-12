@@ -6,7 +6,7 @@
  * **Note:** Remember to update application/config/auth.php
  */
 
-Router::register('GET /auth/login', array('after' => 'layout', function()
+Route::get('auth/login', array('after' => 'layout', function()
 {
 	if ( ! Auth::check())
 	{
@@ -22,7 +22,7 @@ Router::register('GET /auth/login', array('after' => 'layout', function()
 	}
 }));
 
-Router::register('POST /auth/login', array('before' => 'csrf', 'after' => 'layout', function()
+Route::post('auth/login', array('before' => 'csrf', 'after' => 'layout', function()
 {
 	if (Auth::attempt(Input::get('email'), Input::get('password'), Input::get('remember', 'no') == 'yes'))
 	{
@@ -46,7 +46,7 @@ Router::register('POST /auth/login', array('before' => 'csrf', 'after' => 'layou
 	}
 }));
 
-Router::register('GET /auth/logout', function()
+Route::get('auth/logout', function()
 {
 	$redirect = Redirect::to('');
 	if (Auth::check())

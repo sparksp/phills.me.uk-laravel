@@ -1,1 +1,0 @@
-<?php return array('name' => 'auth', 'handles' => 'auth');
