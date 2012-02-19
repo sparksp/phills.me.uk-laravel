@@ -6,7 +6,7 @@
  * **Note:** Remember to update application/config/auth.php
  */
 
-Route::get('auth/login', array('after' => 'layout', function()
+Route::get('auth/login', function()
 {
 	if ( ! Auth::check())
 	{
@@ -20,9 +20,9 @@ Route::get('auth/login', array('after' => 'layout', function()
 		return Redirect::to('')
 			->with('message', '<strong>Log in:</strong> You are already logged in.');
 	}
-}));
+});
 
-Route::post('auth/login', array('before' => 'csrf', 'after' => 'layout', function()
+Route::post('auth/login', array('before' => 'csrf', function()
 {
 	if (Auth::attempt(Input::get('email'), Input::get('password'), Input::get('remember', 'no') == 'yes'))
 	{

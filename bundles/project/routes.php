@@ -1,6 +1,6 @@
 <?php
 
-Route::get('projects', array('after' => 'layout', function()
+Route::get('projects', function()
 {
 	$articles = array(
 		array('title' => 'My Charnwood', 'image' => 'My-Charnwood-2012.png', 'summary' => array(
@@ -47,4 +47,4 @@ Route::get('projects', array('after' => 'layout', function()
 		'articles' => $articles,
 		'category' => $category,
 	));
-}));
+});

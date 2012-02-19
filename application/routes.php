@@ -39,8 +39,8 @@ Route::get('/', function()
 	return Redirect::to('about');
 });
 
-Route::get('(about)',   array('after' => 'layout', 'uses' => 'markdown::page@show'));
-Route::get('(cookies)', array('after' => 'layout', 'uses' => 'markdown::page@show'));
+Route::get('(about)',   'markdown::page@show');
+Route::get('(cookies)', 'markdown::page@show');
 
 Route::get('web', function()
 {
@@ -100,28 +100,28 @@ Event::listen('500', function()
 |
 */
 
+// Do stuff before every request to your application...
 Filter::register('before', function()
 {
-	// Do stuff before every request to your application...
+
 });
 
-Filter::register('after', function()
-{
-	// Do stuff after every request to your application...
-});
-
-Filter::register('layout', function($response, $type = 'html')
-{
+// Do stuff after every request to your application...
+Filter::register('after', function($response)
+{	
 	// Redirects have no content and errors handle their own layout.
-	if ($response->status > 300 and $response->layout !== true) return;
-
-	switch ($type)
+	if ($response->status < 300 or $response->layout === true)
 	{
-		case 'html':
-			$response->content = View::make('layout', array(
-				'content' => $response->content,
-			))->render();
-		break;
+		list($type) = explode(';', $response->headers['Content-Type'], 2);
+		switch ($type)
+		{
+			case '': // Response::send defaults Content-Type to 'text/html'
+			case 'text/html':
+				$response->content = View::make('layout', array(
+					'content' => $response->content
+				))->render();
+			break;
+		}
 	}
 });
 
