@@ -188,7 +188,7 @@ class View implements ArrayAccess {
 	 */
 	public static function composer($view, $composer)
 	{
-		Event::listen("composing: {$view}", $composer);
+		Event::listen("laravel.composing: {$view}", $composer);
 	}
 
 	/**
@@ -201,7 +201,7 @@ class View implements ArrayAccess {
 		// To allow bundles or other pieces of the application to modify the
 		// view before it is rendered, we will fire an event, passing in the
 		// view instance so it can modified by any of the listeners.
-		Event::fire("composing: {$this->view}", array($this));
+		Event::fire("laravel.composing: {$this->view}", array($this));
 
 		$data = $this->data();
 
@@ -213,7 +213,7 @@ class View implements ArrayAccess {
 		//
 		// Also, if the Blade view has expired or doesn't exist it will be
 		// re-compiled and placed in the view storage directory. The Blade
-		// views are re-compiled each time the original view is changed.
+		// views are re-compiled the original view changes.
 		if (strpos($this->path, BLADE_EXT) !== false)
 		{
 			$this->path = $this->compile();
