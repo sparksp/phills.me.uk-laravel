@@ -12,35 +12,56 @@
 |
 | Let's respond to a simple GET request to http://example.com/hello:
 |
-|		Router::register('GET /hello', function()
+|		Route::get('hello', function()
 |		{
 |			return 'Hello World!';
 |		});
 |
 | You can even respond to more than one URI:
 |
-|		Router::register('GET /hello, GET /world', function()
+|		Route::post('hello, world', function()
 |		{
 |			return 'Hello World!';
 |		});
 |
 | It's easy to allow URI wildcards using (:num) or (:any):
 |
-|		Router::register('GET /hello/(:any)', function($name)
+|		Route::put('hello/(:any)', function($name)
 |		{
 |			return "Welcome, $name.";
 |		});
 |
 */
 
-Router::register('GET /', function()
+Route::get('/, home', function()
 {
-	Session::reflash();
-	return Redirect::to('about');
+	return View::make('home.index');
 });
 
-Router::register('GET /(about)',   array('after' => 'layout', 'uses' => 'markdown::page@show'));
-Router::register('GET /(cookies)', array('after' => 'layout', 'uses' => 'markdown::page@show'));
+/*
+|--------------------------------------------------------------------------
+| Application 404 & 500 Error Handlers
+|--------------------------------------------------------------------------
+|
+| To centralize and simplify 404 handling, Laravel uses an awesome event
+| system to retrieve the response. Feel free to modify this function to
+| your tastes and the needs of your application.
+|
+| Similarly, we use an event to handle the display of 500 level errors
+| within the application. These errors are fired when there is an
+| uncaught exception thrown in the application.
+|
+*/
+
+Event::listen('404', function()
+{
+	return Response::error('404');
+});
+
+Event::listen('500', function()
+{
+	return Response::error('500');
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -70,37 +91,22 @@ Router::register('GET /(cookies)', array('after' => 'layout', 'uses' => 'markdow
 |
 */
 
-Filter::register('before', function()
+Route::filter('before', function()
 {
 	// Do stuff before every request to your application...
 });
 
-Filter::register('after', function()
+Route::filter('after', function()
 {
 	// Do stuff after every request to your application...
 });
 
-Filter::register('layout', function($response, $type = 'html')
+Route::filter('csrf', function()
 {
-	// Redirects have no content and errors handle their own layout.
-	if ($response->status > 300 and $response->layout !== true) return;
-
-	switch ($type)
-	{
-		case 'html':
-			$response->content = View::make('layout', array(
-				'content' => $response->content,
-			))->render();
-		break;
-	}
+	if (Request::forged()) return Response::error('500');
 });
 
-Filter::register('csrf', function()
+Route::filter('auth', function()
 {
-	if (Request::forged()) return Response::error(500);
-});
-
-Filter::register('auth', function()
-{
-	if (Auth::guest()) return Response::error(403);
+	if (Auth::guest()) return Redirect::to('login');
 });

@@ -8,13 +8,6 @@
 require 'core.php';
 
 /**
- * Register the default timezone for the application. This will be the
- * default timezone used by all date / timezone functions throughout
- * the entire application.
- */
-date_default_timezone_set(Config::get('application.timezone'));
-
-/**
  * Register the PHP exception handler. The framework throws exceptions
  * on every error that cannot be handled. All of those exceptions will
  * be sent through this closure for processing.
@@ -60,6 +53,21 @@ error_reporting(-1);
 ini_set('display_errors', Config::get('error.display'));
 
 /**
+ * Determine if we need to set the application key to a very random
+ * string so we can provide a zero configuration installation but
+ * still ensure that the key is set to something random. It is
+ * possible to disable this feature.
+ */
+$auto_key = Config::get('application.auto_key');
+
+if ($auto_key and Config::get('application.key') == '')
+{
+	ob_start() and with(new CLI\Tasks\Key)->generate();
+
+	ob_end_clean();
+}
+
+/**
  * Even though "Magic Quotes" are deprecated in PHP 5.3, they may
  * still be enabled on the server. To account for this, we will
  * strip slashes on all input arrays if magic quotes are turned
@@ -77,16 +85,14 @@ if (magic_quotes())
 
 /**
  * Load the session using the session manager. The payload will
- * be registered in the IoC container as an instance so it can
- * be easily access throughout the framework.
+ * be set on a static property of the Session class for easy
+ * access throughout the framework and application.
  */
 if (Config::get('session.driver') !== '')
 {
 	Session::start(Config::get('session.driver'));
 
 	Session::load(Cookie::get(Config::get('session.cookie')));
-
-	IoC::instance('laravel.session', Session::$instance);
 }
 
 /**
@@ -139,13 +145,36 @@ Input::$input = $input;
 Bundle::start(DEFAULT_BUNDLE);
 
 /**
- * Start all of the bundles that are specified in the configuration
- * array of auto-loaded bundles. This lets the developer have an
- * easy way to load bundles for every request.
+ * Auto-start any bundles configured to start on every request.
+ * This is especially useful for debug bundles or bundles that
+ * are used throughout the application.
  */
-foreach (Bundle::all() as $bundle => $config)
+foreach (Bundle::$bundles as $bundle => $config)
 {
 	if ($config['auto']) Bundle::start($bundle);
+}
+
+/**
+ * Register the "catch-all" route that handles 404 responses for
+ * routes that can not be matched to any other route within the
+ * application. We'll just raise the 404 event.
+ */
+Routing\Router::register('*', '(:all)', function()
+{
+	return Event::first('404');
+});
+
+/**
+ * If the requset URI has too many segments, we will bomb out of
+ * the request. This is too avoid potential DDoS attacks against
+ * the framework by overloading the controller lookup method
+ * with thousands of segments.
+ */
+$uri = URI::current();
+
+if (count(URI::$segments) > 15)
+{
+	throw new \Exception("Invalid request. Too many URI segments.");
 }
 
 /**
@@ -154,21 +183,9 @@ foreach (Bundle::all() as $bundle => $config)
  * static property. If no route is found, the 404 response will
  * be returned to the browser.
  */
-if (count(URI::$segments) > 15)
-{
-	throw new \Exception("Invalid request. Too many URI segments.");
-}
+Request::$route = Routing\Router::route(Request::method(), $uri);
 
-Request::$route = Routing\Router::route(Request::method(), URI::current());
-
-if ( ! is_null(Request::$route))
-{
-	$response = Request::$route->call();
-}
-else
-{
-	$response = Response::error('404');
-}
+$response = Request::$route->call();
 
 /**
  * Close the session and write the active payload to persistent
@@ -196,4 +213,4 @@ Cookie::send();
  */
 $response->send();
 
-Event::fire('laravel: done');
+Event::fire('laravel.done');

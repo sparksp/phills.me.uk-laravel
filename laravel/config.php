@@ -141,7 +141,7 @@ class Config {
 
 		// If there are not at least two segments in the array, it means that the
 		// developer is requesting the entire configuration array to be returned.
-		// If that is the case, we'll make the item field of the array "null".
+		// If that is the case, we'll make the item field "null".
 		if (count($segments) >= 2)
 		{
 			$parsed = array($bundle, $segments[0], implode('.', array_slice($segments, 1)));
@@ -199,10 +199,6 @@ class Config {
 		// Configuration files can be made specific for a given environment. If an
 		// environment has been set, we will merge the environment configuration
 		// in last, so that it overrides all other options.
-		//
-		// This allows the developer to quickly and easily create configurations
-		// for various scenarios, such as local development and production,
-		// without constantly changing configuration files.
 		if (isset($_SERVER['LARAVEL_ENV']))
 		{
 			$paths[] = $paths[count($paths) - 1].$_SERVER['LARAVEL_ENV'].'/';
