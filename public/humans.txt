@@ -1,0 +1,15 @@
+/* TEAM */
+	Developer: Phill Sparks
+	Twitter: @phillsparks
+
+/* THANKS */
+	Laravel Creator: Taylor Otwell
+	Twitter: @taylorotwell
+
+	Laravel: Eric Barnes
+	Twitter: @ericlbarnes
+
+/* SITE */
+	Language: en-GB
+	IDE: Sublime Text
+	Framework: Laravel

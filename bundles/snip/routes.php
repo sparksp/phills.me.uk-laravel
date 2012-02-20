@@ -2,7 +2,7 @@
 
 use Snip\Model as Snip;
 
-Route::get('snips', array('after' => 'layout', function()
+Route::get('snips', function()
 {
 	$snips = Snip::order_by('created', 'desc')->get(array('id', 'title'));
 
@@ -10,9 +10,9 @@ Route::get('snips', array('after' => 'layout', function()
 	return View::make('snip::list', array(
 		'content' => $snips,
 	));
-}));
+});
 
-Route::get('snips/snip-new', array('before' => 'auth', 'after' => 'layout', 'do' => function()
+Route::get('snips/snip-new', array('before' => 'auth', 'do' => function()
 {
 	View::share('title', 'Create Snip');
 	return View::make('snip::edit', array(
@@ -20,7 +20,7 @@ Route::get('snips/snip-new', array('before' => 'auth', 'after' => 'layout', 'do'
 	));
 }));
 
-Route::post('snips', array('before' => 'auth|csrf', 'after' => 'layout', 'do' => function()
+Route::post('snips', array('before' => 'auth|csrf', 'do' => function()
 {
 	$snip = new Snip();
 	$errors = $snip->validate();
@@ -39,7 +39,7 @@ Route::post('snips', array('before' => 'auth|csrf', 'after' => 'layout', 'do' =>
 	}
 }));
 
-Route::get('snips/snip-(:num)-(:any)', array('before' => 'snip::check-url', 'after' => 'layout', function($id, $title = '')
+Route::get('snips/snip-(:num)-(:any)', array('before' => 'snip::check-url', function($id, $title = '')
 {
 	$snip = Snip::find($id);
 	View::share('title', $snip->title);
@@ -49,7 +49,7 @@ Route::get('snips/snip-(:num)-(:any)', array('before' => 'snip::check-url', 'aft
 	));
 }));
 
-Route::get('snips/snip-(:num)/edit', array('before' => 'auth', 'after' => 'layout', 'do' => function($id)
+Route::get('snips/snip-(:num)/edit', array('before' => 'auth', 'do' => function($id)
 {
 	if ($snip = Snip::find($id))
 	{
@@ -61,7 +61,7 @@ Route::get('snips/snip-(:num)/edit', array('before' => 'auth', 'after' => 'layou
 	return Response::error(404);
 }));
 
-Route::put('snips/snip-(:num)', array('before' => 'auth|csrf', 'after' => 'layout', 'do' => function($id)
+Route::put('snips/snip-(:num)', array('before' => 'auth|csrf', 'do' => function($id)
 {
 	if ($snip = Snip::find($id))
 	{
@@ -84,7 +84,7 @@ Route::put('snips/snip-(:num)', array('before' => 'auth|csrf', 'after' => 'layou
 	return Response::error(404);
 }));
 
-Route::get('snips/snip-(:num)/delete', array('before' => 'auth', 'after' => 'layout', 'do' => function($id)
+Route::get('snips/snip-(:num)/delete', array('before' => 'auth', 'do' => function($id)
 {
 	if ($snip = Snip::find($id))
 	{
@@ -96,7 +96,7 @@ Route::get('snips/snip-(:num)/delete', array('before' => 'auth', 'after' => 'lay
 	return Response::error(404);
 }));
 
-Route::delete('snips/snip-(:num)', array('before' => 'auth|csrf', 'after' => 'layout', 'do' => function($id)
+Route::delete('snips/snip-(:num)', array('before' => 'auth|csrf', 'do' => function($id)
 {
 	if ($snip = Snip::find($id))
 	{

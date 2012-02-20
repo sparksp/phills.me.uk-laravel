@@ -1,6 +1,18 @@
-<?php namespace Laravel;
+<?php namespace Laravel; use Laravel\Routing\Router;
 
 class Redirect extends Response {
+
+	/**
+	 * Create a redirect response to application root.
+	 *
+	 * @param  int       $status
+	 * @param  bool      $secure
+	 * @return Redirect
+	 */
+	public static function home($status = 302, $https = false)
+	{
+		return static::to(URL::home($https), $status);
+	}
 
 	/**
 	 * Create a redirect response.

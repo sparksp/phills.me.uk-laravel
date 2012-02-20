@@ -101,6 +101,26 @@ class Router {
 	}
 
 	/**
+	 * Register many request URIs to a single action.
+	 *
+	 * <code>
+	 *		// Register a group of URIs for an action
+	 *		Router::share(array('GET', '/'), array('POST', '/'), 'home@index');
+	 * </code>
+	 *
+	 * @param  array  $routes
+	 * @param  mixed  $action
+	 * @return void
+	 */
+	public static function share($routes, $action)
+	{
+		foreach ($routes as $route)
+		{
+			static::register($route[0], $route[1], $action);
+		}
+	}
+
+	/**
 	 * Register a group of routes that share attributes.
 	 *
 	 * @param  array    $attributes
@@ -347,11 +367,14 @@ class Router {
 		// To find a named route, we will iterate through every route defined
 		// for the application. We will cache the routes by name so we can
 		// load them very quickly the next time.
-		foreach (static::all() as $key => $value)
+		foreach (static::routes() as $method => $routes)
 		{
-			if (array_get($value, 'name') === $name)
+			foreach ($routes as $key => $value)
 			{
-				return static::$names[$name] = array($key => $value);
+				if (isset($value['as']) and $value['as'] === $name)
+				{
+					return static::$names[$name] = array($key => $value);
+				}
 			}
 		}
 	}
@@ -377,11 +400,14 @@ class Router {
 		// To find the route, we'll simply spin through the routes looking
 		// for a route with a "uses" key matching the action, and if we
 		// find one we cache and return it.
-		foreach (static::all() as $uri => $route)
+		foreach (static::routes() as $method => $routes)
 		{
-			if (array_get($route, 'uses') == $action)
+			foreach ($routes as $key => $value)
 			{
-				return static::$uses[$action] = array($uri => $route);
+				if (isset($value['uses']) and $value['uses'] === $action)
+				{
+					return static::$uses[$action] = array($key => $value);
+				}
 			}
 		}
 	}
@@ -397,7 +423,7 @@ class Router {
 	{
 		Bundle::start($bundle = Bundle::handles($uri));
 
-		$routes = (array) static::routes($method);
+		$routes = (array) static::method($method);
 
 		// Of course literal route matches are the quickest to find, so we will
 		// check for those first. If the destination key exists in the routes
@@ -427,7 +453,7 @@ class Router {
 	 */
 	protected static function match($method, $uri)
 	{
-		foreach (static::routes($method) as $route => $action)
+		foreach (static::method($method) as $route => $action)
 		{
 			// We only need to check routes with regular expression since all other
 			// would have been able to be matched by the search for literal matches
@@ -471,32 +497,39 @@ class Router {
 	}
 
 	/**
-	 * Get all of the routes across all request methods.
+	 * Get all of the registered routes, with fallbacks at the end.
 	 *
 	 * @return array
 	 */
-	public static function all()
+	public static function routes()
 	{
-		$all = array();
+		$routes = static::$routes;
 
-		// To get all the routes, we'll just loop through each request
-		// method supported by the router and merge in each of the
-		// arrays into the main array of routes.
 		foreach (static::$methods as $method)
 		{
-			$all = array_merge($all, static::routes($method));
+			// It's possible that the routes array may not contain any routes for the
+			// method, so we'll seed each request method with an empty array if it
+			// doesn't already contain any routes.
+			if ( ! isset($routes[$method])) $routes[$method] = array();
+
+			$fallback = array_get(static::$fallback, $method, array());
+
+			// When building the array of routes, we'll merge in all of the fallback
+			// routes for each request methdo individually. This allows us to avoid
+			// collisions when merging the arrays together.
+			$routes[$method] = array_merge($routes[$method], $fallback);
 		}
 
-		return $all;
+		return $routes;
 	}
 
 	/**
-	 * Get all of the registered routes, with fallbacks at the end.
+	 * Grab all of the routes for a given request method.
 	 *
 	 * @param  string  $method
 	 * @return array
 	 */
-	public static function routes($method = null)
+	public static function method($method)
 	{
 		$routes = array_get(static::$routes, $method, array());
 

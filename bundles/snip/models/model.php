@@ -98,7 +98,7 @@ class Model extends Eloquent {
 	 */
 	public function user()
 	{
-		return $this->belongs_to('User\\User');
+		return $this->belongs_to('User\\Model');
 	}
 
 	/**

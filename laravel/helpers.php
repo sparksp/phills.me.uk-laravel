@@ -178,18 +178,6 @@ function array_first($array, $callback, $default = null)
 }
 
 /**
- * Spin through the array, executing a callback with each key and element.
- *
- * @param  array  $array
- * @param  mixed  $callback
- * @return array
- */
-function array_spin($array, $callback)
-{
-	return array_map($callback, array_keys($array), array_values($array));
-}
-
-/**
  * Recursively remove slashes from array keys and values.
  *
  * @param  array  $array
@@ -298,12 +286,11 @@ function asset($url, $https = false)
  *
  * @param  string  $action
  * @param  array   $parameters
- * @param  bool    $https
  * @return string
  */
-function action($action, $parameters = array(), $https = false)
+function action($action, $parameters = array())
 {
-	return Laravel\URL::to_action($action, $parameters, $https);
+	return Laravel\URL::to_action($action, $parameters);
 }
 
 /**
@@ -319,12 +306,11 @@ function action($action, $parameters = array(), $https = false)
  *
  * @param  string  $name
  * @param  array   $parameters
- * @param  bool    $https
  * @return string
  */
-function route($name, $parameters = array(), $https = false)
+function route($name, $parameters = array())
 {
-	return Laravel\URL::to_route($name, $parameters, $https);
+	return Laravel\URL::to_route($name, $parameters);
 }
 
 /**

@@ -21,7 +21,7 @@ Autoloader::map(array(
 
 /*
 |--------------------------------------------------------------------------
-| Auto-Loader PSR-0 Directories
+| Auto-Loader Directories
 |--------------------------------------------------------------------------
 |
 | The Laravel auto-loader can search directories for files using the PSR-0
@@ -34,7 +34,25 @@ Autoloader::map(array(
 |
 */
 
-Autoloader::psr(array(
+Autoloader::directories(array(
 	path('app').'models',
 	path('app').'libraries',
 ));
+
+
+
+/*
+ |--------------------------------------------------------------------------
+ | Auto-start some bundles
+ |--------------------------------------------------------------------------
+ |
+ | You can auto start bundles from bundles.php but I think that this looks a
+ | little clearer; and hopefully these will not remain here for too long.
+ |
+ */
+
+Bundle::start('topos');
+Bundle::start('eloquent');
+Bundle::start('user');
+Bundle::start('twitter');
+

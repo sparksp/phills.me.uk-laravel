@@ -5,7 +5,7 @@ use Eloquent\Model as Eloquent;
 /**
  * A basic user model.
  */
-class User extends Eloquent {
+class Model extends Eloquent {
 
 	/**
 	 * @var string
