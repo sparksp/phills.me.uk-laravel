@@ -14,7 +14,7 @@ class Autoloader {
 	 *
 	 * @var array
 	 */
-	public static $psr = array();
+	public static $directories = array();
 
 	/**
 	 * The mappings for namespaces to directories.
@@ -67,6 +67,21 @@ class Autoloader {
 			return static::load_psr($class, $info['directory']);
 		}
 
+		// If the class is namespaced and a bundle exists that is assigned
+		// a name matching that namespace, we'll start the bundle and let
+		// the class fall through the method again.
+		if ( ! is_null($namespace = root_namespace($class)))
+		{
+			$namespace = strtolower($namespace);
+
+			if (Bundle::exists($namespace) and ! Bundle::started($namespace))
+			{
+				Bundle::start($namespace);
+
+				return static::load($class);
+			}
+		}
+
 		// If the class is not maped and is not part of a bundle or a mapped
 		// namespace, we'll make a last ditch effort to load the class via
 		// the PSR-0 from one of the registered directories.
@@ -87,7 +102,7 @@ class Autoloader {
 		// resides, so we'll convert them to slashes.
 		$file = str_replace(array('\\', '_'), '/', $class);
 
-		$directories = $directory ?: static::$psr;
+		$directories = $directory ?: static::$directories;
 
 		$lower = strtolower($file);
 
@@ -157,7 +172,7 @@ class Autoloader {
 	{
 		$directories = static::format($directory);
 
-		static::$psr = array_unique(array_merge(static::$psr, $directories));
+		static::$directories = array_unique(array_merge(static::$directories, $directories));
 	}
 
 	/**
