@@ -28,7 +28,7 @@ Route::post('auth/login', array('before' => 'csrf', function()
 	{
 		$to = Input::has('from') ? URL::to(Input::get('from')) : URL::to('');
 
-		return Redirect::to($to)->with('success', '<strong>Log in:</strong> Welcome to Womble!');
+		return Redirect::to($to)->with('success', '<strong>Log in:</strong> Welcome!');
 	}
 	else
 	{
