@@ -35,12 +35,46 @@
 
 return array(
 	'auth' => array('handles' => 'auth'),
-	'eloquent',
+	'eloquent' => array(
+		'autoloads' => array(
+			'map' => array(
+				'Eloquent\\Hydrator' => '(:bundle)/hydrator.php',
+				'Eloquent\\Model' => '(:bundle)/model.php',
+			),
+		),
+	),
 	'markdown',
-	'project' => array('handles' => 'projects'),
-	'snip' => array('handles' => 'snips'),
+	'project' => array(
+		'handles' => 'projects'
+	),
+	'snip' => array(
+		'autoloads' => array(
+			'map' => array(
+				'Snip\\Model' => '(:bundle)/model.php',
+			),
+		),
+		'handles' => 'snips'
+	),
 	'syntaxhighlighter',
-	'topos',
-	'twitter',
-	'user',
+	'topos' => array(
+		'autoloads' => array(
+			'map' => array(
+				'Topos\\Menu' => '(:bundle)/menu.php',
+			),
+		),
+	),
+	'twitter' => array(
+		'autoloads' => array(
+			'map' => array(
+				'Twitter\\Bootstrap\\Form' => '(:bundle)/bootstrap/form.php',
+			),
+		),
+	),
+	'user' => array(
+		'autoloads' => array(
+			'map' => array(
+				'User\\Model' => '(:bundle)/model.php',
+			),
+		),
+	),
 );

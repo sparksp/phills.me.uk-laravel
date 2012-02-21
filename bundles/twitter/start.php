@@ -14,5 +14,5 @@
  */
 
 Autoloader::map(array(
-	'Twitter\\Bootstrap\\Form' => __DIR__.DIRECTORY_SEPARATOR.'bootstrap'.DIRECTORY_SEPARATOR.'form'.EXT,
+	'Twitter\\Bootstrap\\Form' => __DIR__.DS.'bootstrap'.DS.'form'.EXT,
 ));
