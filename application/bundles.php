@@ -40,7 +40,13 @@ return array(
 	'project' => array('handles' => 'projects'),
 	'snip' => array('handles' => 'snips'),
 	'syntaxhighlighter',
-	'topos',
+	'topos' => array(
+		'autoloads' => array(
+			'map' => array(
+				'Topos\\Menu' => '(:bundle)/menu.php',
+			),
+		),
+	),
 	'twitter',
 	'user',
 );
