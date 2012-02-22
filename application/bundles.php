@@ -35,6 +35,13 @@
 
 return array(
 	'auth' => array('handles' => 'auth'),
+	'bootsparks' => array(
+		'autoloads' => array(
+			'map' => array(
+				'Bootsparks\\Form' => '(:bundle)/form.php',
+			),
+		),
+	),
 	'eloquent' => array(
 		'autoloads' => array(
 			'map' => array(
@@ -60,13 +67,6 @@ return array(
 		'autoloads' => array(
 			'map' => array(
 				'Topos\\Menu' => '(:bundle)/menu.php',
-			),
-		),
-	),
-	'twitter' => array(
-		'autoloads' => array(
-			'map' => array(
-				'Twitter\\Bootstrap\\Form' => '(:bundle)/bootstrap/form.php',
 			),
 		),
 	),
