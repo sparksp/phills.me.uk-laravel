@@ -43,7 +43,6 @@ return array(
 			),
 		),
 	),
-	'markdown',
 	'project' => array(
 		'handles' => 'projects'
 	),
