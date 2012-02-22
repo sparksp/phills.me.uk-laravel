@@ -56,6 +56,7 @@ return array(
 		'handles' => 'snips'
 	),
 	'syntaxhighlighter',
+	'sparkdown',
 	'topos' => array(
 		'autoloads' => array(
 			'map' => array(
