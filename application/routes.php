@@ -39,8 +39,8 @@ Route::get('/', function()
 	return Redirect::to('about');
 });
 
-Route::get('(about)',   'markdown::page@show');
-Route::get('(cookies)', 'markdown::page@show');
+Route::get('(about)',   'sparkdown::page@show');
+Route::get('(cookies)', 'sparkdown::page@show');
 
 Route::get('web', function()
 {
