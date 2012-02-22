@@ -2,7 +2,22 @@
 
 ## Installation
 
+### Aritsan
+
 	php artisan bundle:install eloquent
+
+### Bundle Registration
+
+Add the following to your **application/bundles.php** file:
+
+	'eloquent' => array(
+		'autoloads' => array(
+			'map' => array(
+				'Eloquent\\Model'    => '(:bundle)/model.php',
+				'Eloquent\\Hydrator' => '(:bundle)/hydrator.php',
+			),
+		),
+	),
 
 ## Guide
 
