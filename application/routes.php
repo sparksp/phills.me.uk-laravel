@@ -110,12 +110,11 @@ Filter::register('before', function()
 Filter::register('after', function($response)
 {	
 	// Redirects have no content and errors handle their own layout.
-	if ($response->status < 300 or $response->layout === true)
+	if ($response->status < 300 or (isset($response->layout) and $response->layout === true))
 	{
-		list($type) = explode(';', $response->headers['Content-Type'], 2);
+		list($type) = explode(';', array_get($response->headers, 'Content-Type', 'text/html'), 2);
 		switch ($type)
 		{
-			case '': // Response::send defaults Content-Type to 'text/html'
 			case 'text/html':
 				$response->content = View::make('layout', array(
 					'content' => $response->content

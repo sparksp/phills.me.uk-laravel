@@ -10,6 +10,8 @@ Route::get('auth/login', function()
 {
 	if ( ! Auth::check())
 	{
+		View::share('title', 'Login');
+
 		// GET /login is not Forbidden (403) and should be served with 
 		// status 200, so we make a view of the form rather than serve
 		// a Response::error.  The only difference is the status code.
@@ -32,6 +34,8 @@ Route::post('auth/login', array('before' => 'csrf', function()
 	}
 	else
 	{
+		View::share('title', 'Login');
+		
 		$errors = new Laravel\Messages;
 		$errors->add('login', 'E-mail address or password are wrong, please try again.');
 		$errors->add('email', 'Error');

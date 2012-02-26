@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	
-	<title><?php echo $title ? htmlspecialchars("$title - Phill Sparks") : "Phill Sparks: My design skills are black, white and orange"; ?></title>
+	<title><?php echo isset($title) ? htmlspecialchars("$title - Phill Sparks") : "Phill Sparks: My design skills are black, white and orange"; ?></title>
 
 	<meta name="author" content="Phill Sparks">
 <?php if ( ! empty($title)): ?>
