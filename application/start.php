@@ -17,6 +17,7 @@
 
 Autoloader::map(array(
 	'Base_Controller' => path('app').'controllers/base.php',
+	'Auth_Controller' => path('app').'controllers/auth.php',
 ));
 
 /*

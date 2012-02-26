@@ -34,7 +34,6 @@
 */
 
 return array(
-	'auth' => array('handles' => 'auth'),
 	'bootsparks' => array(
 		'autoloads' => array(
 			'map' => array(

@@ -47,6 +47,9 @@ Route::get('web', function()
 	return Redirect::to('/projects?category=web');
 });
 
+Route::any('login', 'auth@login');
+Route::get('logout', 'auth@logout');
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
