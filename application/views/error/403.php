@@ -1,6 +1,6 @@
 <?php echo View::make('layout.header', array('title' => Auth::guest() ? 'Log in' : 'Forbidden'))->render(); ?>
 <?php if (Auth::guest()): ?>
-	<?php echo View::make('auth::login')->render(); ?>
+	<?php echo View::make('auth/login')->render(); ?>
 <?php else: ?>
 <article>
 	<h1>Forbidden <small>Error 403</small></h1>

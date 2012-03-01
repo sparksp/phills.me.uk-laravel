@@ -1,7 +1,7 @@
 <article>
 	<h1>Log in</h1>
 
-	<?php echo Form::open(URL::to('auth/login'), 'POST', array('class' => Form::TYPE_HORIZONTAL)); ?>
+	<?php echo Form::open(URL::to_action('auth@login'), 'POST', array('class' => Form::TYPE_HORIZONTAL)); ?>
 	<?php echo Form::token(); ?>
 	<?php echo Form::hidden('from', Input::get('from', Request::uri() === 'auth/login' ? '' : Request::uri())); ?>
 
