@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'ignore' => array(E_NOTICE, E_USER_NOTICE, E_DEPRECATED, E_USER_DEPRECATED),
+	'ignore' => array(),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ return array(
 	|
 	*/
 
-	'detail' => true,
+	'detail' => false,
 
 	/*
 	|--------------------------------------------------------------------------
