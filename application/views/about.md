@@ -11,6 +11,57 @@
 	</div></div>
 </header>
 
+<h1 class="page-header">Technical Skills</h1>
+
+<div class="row"><div class="offset2 span10">
+	<h2>Programming</h2>
+
+	<div class="row"><div class="span3">
+		<h3>Proficient</h3>
+		<ul>
+			<li>CSS</li>
+			<li>HTML4 / XHTML / HTML5</li>
+			<li>JavaScript</li>
+			<li>MySQL</li>
+			<li>PHP</li>
+		</ul>
+	</div><div class="span3">
+		<h3>Emerging</h3>
+		<ul>
+			<li>Java (Android)</li>
+		</ul>
+	</div><div class="span3">
+		<h3>Novice</h3>
+		<ul>
+			<li>C / C++ / Objective-C</li>
+			<li>Perl</li>
+			<li>Prolog</li>
+			<li>Python</li>
+			<li>VB / VBA / VBScript</li>
+		</ul>
+	</div></div>
+</div></div>
+
+<div class="row"><div class="offset2 span10">
+	<h2>Software</h2>
+	<ul>
+		<li>Adobe Fireworks (and basic Photoshop / Illustrator)</li>
+		<li>Apache and Lighttpd</li>
+		<li>Git and SVN</li>
+		<li>Microsoft Office (including Word, Excel and Powerpoint)</li>
+		<li>Titanium Studio</li>
+	</ul>
+</div></div>
+
+<div class="row"><div class="offset2 span10">
+	<h2>Operating Systems</h2>
+	<ul>
+		<li>Linux</li>
+		<li>Mac OS X</li>
+		<li>Windows 3.1 &ndash; XP</li>
+	</ul>
+</div></div>
+
 <h1 class="page-header">Employment</h1>
 
 <h2>Developer, Cuttlefish Multimedia Ltd <small>2005 - Present</small></h2>
@@ -113,57 +164,6 @@
 	<h3>County Youth Council, Leicestershire</h3>
 
 	<p>CYCLe started off from the UK Youth Parliament elections in 2001.  We established a group of young people from schools and youth groups around the county to consult and advise.  Over the years CYCLe has grown into a full Pyramid of Participation involving 7 Youth Councils at the Borough / District level all linking up into CYCLe and down into School Council.  My role in the youth councils developed into building and maintaining a portal on <a href="http://www.thejitty.com/">The Jitty</a> to advertise the youth councils and host their calendar and meeting notes.</p>
-</div></div>
-
-<h1 class="page-header">Technical Competence</h1>
-
-<div class="row"><div class="offset2 span10">
-	<h2>Programming</h2>
-
-	<div class="row"><div class="span3">
-		<h3>Proficient</h3>
-		<ul>
-			<li>CSS</li>
-			<li>HTML4 / XHTML / HTML5</li>
-			<li>JavaScript</li>
-			<li>MySQL</li>
-			<li>PHP</li>
-		</ul>
-	</div><div class="span3">
-		<h3>Emerging</h3>
-		<ul>
-			<li>Java</li>
-		</ul>
-	</div><div class="span3">
-		<h3>Novice</h3>
-		<ul>
-			<li>C / C++ / Objective-C</li>
-			<li>Perl</li>
-			<li>Prolog</li>
-			<li>Python</li>
-			<li>VB / VBA / VBScript</li>
-		</ul>
-	</div></div>
-</div></div>
-
-<div class="row"><div class="offset2 span10">
-	<h2>Software</h2>
-	<ul>
-		<li>Adobe Fireworks (and basic Photoshop / Illustrator)</li>
-		<li>Apache and Lighttpd</li>
-		<li>Git and SVN</li>
-		<li>Microsoft Office (including Word, Excel and Powerpoint)</li>
-		<li>Titanium Studio</li>
-	</ul>
-</div></div>
-
-<div class="row"><div class="offset2 span10">
-	<h2>Operating Systems</h2>
-	<ul>
-		<li>Linux</li>
-		<li>Mac OS X</li>
-		<li>Windows 3.1 &ndash; XP</li>
-	</ul>
 </div></div>
 
 </article>
