@@ -65,7 +65,7 @@ class Model extends Eloquent {
 		$rules = array(
 			'title'    => 'required',
 			'body'     => 'required',
-			'langauge' => 'in:'.implode(',', self::language_options()),
+			'language' => 'required|in:'.implode(',', self::language_options()),
 		);
 
 		$validator = new Validator( Input::all(), $rules );
