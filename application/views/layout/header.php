@@ -14,6 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link href="<?php echo URL::to_asset('favicon.ico'); ?>" type="image/x-icon" rel="shortcut icon">
+	<link href="<?php echo URL::to_asset('favicon.png'); ?>" type="image/png"    rel="shortcut icon">
 	<link href="<?php echo URL::to_asset('css/phills.min.css'); ?>" rel="stylesheet" type="text/css">
 	<?php echo Asset::styles(); ?>
 
