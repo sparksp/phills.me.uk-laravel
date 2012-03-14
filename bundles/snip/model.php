@@ -65,7 +65,7 @@ class Model extends Eloquent {
 		$rules = array(
 			'title'    => 'required',
 			'body'     => 'required',
-			'language' => 'required|in:'.implode(',', self::language_options()),
+			'language' => 'required|in:'.implode(',', array_keys(self::language_options())),
 		);
 
 		$validator = new Validator( Input::all(), $rules );
@@ -80,7 +80,7 @@ class Model extends Eloquent {
 			
 			if (empty($this->slug))
 			{
-				$this->slug = Str::slug($this->title);
+				$this->slug = Str::slug($this->title, '-');
 			}
 			if (empty($this->user_id))
 			{
@@ -102,19 +102,20 @@ class Model extends Eloquent {
 	}
 
 	/**
-	 * Gets the URL for this snip.
-	 */
-	public function url()
-	{
-		return URL::to('snips/snip-'.$this->id.'-'.Str::slug($this->title, '-'));
-	}
-
-	/**
 	 * Gets the URI for this snip.
 	 */
 	public function uri()
 	{
-		return 'snips/snip-'.$this->id;
+		return URL::to_action('snip::home@show', array($this->id));
+	}
+
+	/**
+	 * Gets the URL for this snip.
+	 */
+	public function url()
+	{
+		$slug = $this->slug ?: Str::slug($this->title, '-');
+		return URL::to_action('snip::home@detail', array($this->id, $slug));
 	}
 
 }
