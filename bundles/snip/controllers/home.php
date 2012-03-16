@@ -4,6 +4,12 @@ use Snip\Model as Snip;
 
 /**
  * Default controller for snips.
+ * 
+ * @package   Snip
+ * @category  Bundle
+ * @author    Phill Sparks <me@phills.me.uk>
+ * @copyright 2012 Phill Sparks
+ * @license   MIT License <http://www.opensource.org/licenses/mit>
  */
 class Snip_Home_Controller extends Base_Controller {
 

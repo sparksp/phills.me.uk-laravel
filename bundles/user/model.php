@@ -4,6 +4,12 @@ use Eloquent\Model as Eloquent;
 
 /**
  * A basic user model.
+ * 
+ * @package   User
+ * @category  Bundle
+ * @author    Phill Sparks <me@phills.me.uk>
+ * @copyright 2012 Phill Sparks
+ * @license   MIT License <http://www.opensource.org/licenses/mit>
  */
 class Model extends Eloquent {
 

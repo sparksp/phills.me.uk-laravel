@@ -2,6 +2,10 @@
 
 /**
  * The Auth Controller handles logging in and out.
+ * 
+ * @author    Phill Sparks <me@phills.me.uk>
+ * @copyright 2012 Phill Sparks
+ * @license   MIT License <http://www.opensource.org/licenses/mit>
  */
 class Auth_Controller extends Base_Controller {
 
