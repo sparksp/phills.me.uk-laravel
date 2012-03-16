@@ -50,10 +50,6 @@ Route::get('web', function()
 Route::any('login', 'auth@login');
 Route::get('logout', 'auth@logout');
 
-// Backward compatibility
-Route::get('snips/snip-(:num)', 'snip::home@show');
-Route::get('snips/snip-(:num)-(:any)?', 'snip::home@show');
-
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers

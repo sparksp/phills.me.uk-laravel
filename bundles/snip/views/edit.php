@@ -5,7 +5,7 @@
 	<?php $cancel = HTML::link($content->url(), 'Cancel', array('class' => 'btn cancel'))?>
 <?php else: ?>
 	<h1>Create Snip</h1>
-	<?php echo Form::open(URL::to_action('snips::home'), 'POST', array('class' => 'snip '.Form::TYPE_HORIZONTAL)); ?>
+	<?php echo Form::open(URL::to_action('snip::home@index'), 'POST', array('class' => 'snip '.Form::TYPE_HORIZONTAL)); ?>
 	<?php $cancel = HTML::link('snips', 'Cancel', array('class' => 'btn cancel'))?>
 <?php endif; ?>
 	<?php echo Form::token(); ?>

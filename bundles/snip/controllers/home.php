@@ -4,6 +4,12 @@ use Snip\Model as Snip;
 
 /**
  * Default controller for snips.
+ * 
+ * @package   Snip
+ * @category  Bundle
+ * @author    Phill Sparks <me@phills.me.uk>
+ * @copyright 2012 Phill Sparks
+ * @license   MIT License <http://www.opensource.org/licenses/mit>
  */
 class Snip_Home_Controller extends Base_Controller {
 
@@ -50,14 +56,19 @@ class Snip_Home_Controller extends Base_Controller {
 		if (count($errors->all()) > 0)
 		{
 			// Redirect back to the form
-			return Redirect::to_action('snip::home@new')
+			return Redirect::to_action('snip::home@new', array(), 303)
 				->with_input()
 				->with_errors($errors);
 		}
 		else
 		{
 			$snip->save();
-			return Redirect::to($snip->url())->with('message', 'Snip created.');
+
+			// True REST would return 201 (Created) here with a Location
+			// header pointing to the new resource, however this is not a
+			// redirect and so browsers won't follow the Location.
+			return Redirect::to($snip->url(), 303)
+				->with('message', 'Snip created.');
 		}
 	}
 
@@ -71,9 +82,20 @@ class Snip_Home_Controller extends Base_Controller {
 	public function get_new()
 	{
 		View::share('title', 'Create Snip');
-		return View::make('snip::edit', array(
+		$response = Response::view('snip::edit', array(
 			'content' => new Snip
 		));
+
+		// A normal request to this form should return status 200 (OK),
+		// however if we're redirected back here with errors then something
+		// was wrong with the previous request so we'll use 400 (Bad Request)
+		// to indicate this, despite this actual GET request being OK.
+		if (Session::has('errors'))
+		{
+			$response->status = 400; // Bad Request
+			$response->layout = true;
+		}
+		return $response;
 	}
 
 	/**
@@ -81,6 +103,8 @@ class Snip_Home_Controller extends Base_Controller {
 	 * 
 	 * Show the detail for a snip.
 	 * 
+	 * @param  int  $id
+	 * @param  string  $slug
 	 * @return mixed
 	 */
 	public function get_detail($id, $slug = '')
@@ -89,7 +113,7 @@ class Snip_Home_Controller extends Base_Controller {
 		{
 			if ($snip->slug != $slug)
 			{
-				return Redirect::to_action('snip::home@detail', array($id, $snip->slug));
+				return Redirect::to_action('snip::home@detail', array($id, $snip->slug), 301);
 			}
 			else
 			{
@@ -108,13 +132,14 @@ class Snip_Home_Controller extends Base_Controller {
 	 * 
 	 * Redirects to the detail view for the snip.
 	 * 
+	 * @param  int  $id
 	 * @return mixed
 	 */
 	public function get_show($id)
 	{
 		if ($snip = Snip::find($id))
 		{
-			return Redirect::to_action('snip::home@detail', array($id, $snip->slug));
+			return Redirect::to_action('snip::home@detail', array($id, $snip->slug), 301);
 		}
 		return Response::error(404);
 	}
@@ -124,6 +149,7 @@ class Snip_Home_Controller extends Base_Controller {
 	 * 
 	 * Updates a snip with the PUT data.
 	 * 
+	 * @param  int  $id
 	 * @return mixed
 	 */
 	public function put_show($id)
@@ -133,14 +159,15 @@ class Snip_Home_Controller extends Base_Controller {
 			$errors = $snip->validate();
 			if (count($errors->all()) > 0)
 			{
-				return Redirect::to_action('snip::home@edit', array($id))
+				return Redirect::to_action('snip::home@edit', array($id), 303)
 					->with_input()
 					->with_errors($errors);
 			}
 			else
 			{
 				$snip->save();
-				return Redirect::to($snip->url())->with('message', 'Snip updated.');
+				return Redirect::to($snip->url(), 303)
+					->with('message', 'Snip updated.');
 			}
 		}
 		// Use POST to create snips
@@ -152,6 +179,7 @@ class Snip_Home_Controller extends Base_Controller {
 	 * 
 	 * Delete a snip, and redirect back to the snip index.
 	 * 
+	 * @param  int  $id
 	 * @return mixed
 	 */
 	public function delete_show($id)
@@ -159,7 +187,11 @@ class Snip_Home_Controller extends Base_Controller {
 		if ($snip = Snip::find($id))
 		{
 			$snip->delete();
-			return Redirect::to('snips')->with('message', 'Snip deleted.');
+
+			// True REST would return 204 (No Content) as an acknowledgement
+			// that the action was performed and there is now no content.
+			return Redirect::to('snips', 303)
+				->with('message', 'Snip deleted.');
 		}
 		return Response::error(404);
 	}
@@ -169,6 +201,7 @@ class Snip_Home_Controller extends Base_Controller {
 	 * 
 	 * Display the edit form for a snip.
 	 * 
+	 * @param  int  $id
 	 * @return mixed
 	 */
 	public function get_edit($id)
@@ -176,9 +209,20 @@ class Snip_Home_Controller extends Base_Controller {
 		if ($snip = Snip::find($id))
 		{
 			View::share('title', 'Edit: '.$snip->title);
-			return View::make('snip::edit', array(
+			$response = Response::view('snip::edit', array(
 				'content' => $snip
 			));
+
+			// A normal request to this form should return status 200 (OK),
+			// however if we're redirected back here with errors then something
+			// was wrong with the previous request so we'll use 400 (Bad Request)
+			// to indicate this, despite this actual GET request being OK.
+			if (Session::has('errors'))
+			{
+				$response->status = 400; // Bad Request
+				$response->layout = true;
+			}
+			return $response;
 		}
 		return Response::error(404);
 	}
@@ -188,6 +232,7 @@ class Snip_Home_Controller extends Base_Controller {
 	 * 
 	 * Display a delete confirmation form for a snip.
 	 * 
+	 * @param  int  $id
 	 * @return mixed
 	 */
 	public function get_delete($id)
@@ -195,9 +240,20 @@ class Snip_Home_Controller extends Base_Controller {
 		if ($snip = Snip::find($id))
 		{
 			View::share('title', 'Delete: '.$snip->title);
-			return View::make('snip::delete', array(
+			$response = Response::view('snip::delete', array(
 				'content' => $snip
 			));
+
+			// A normal request to this form should return status 200 (OK),
+			// however if we're redirected back here with errors then something
+			// was wrong with the previous request so we'll use 400 (Bad Request)
+			// to indicate this, despite this actual GET request being OK.
+			if (Session::has('errors'))
+			{
+				$response->status = 400; // Bad Request
+				$response->layout = true;
+			}
+			return $response;
 		}
 		return Response::error(404);
 	}

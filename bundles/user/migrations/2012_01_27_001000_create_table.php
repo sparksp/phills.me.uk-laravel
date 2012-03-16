@@ -3,7 +3,11 @@
 /**
  * Create a new users table.
  * 
- * @author  Phill Sparks <me@phills.me.uk>
+ * @package   User
+ * @category  Bundle
+ * @author    Phill Sparks <me@phills.me.uk>
+ * @copyright 2012 Phill Sparks
+ * @license   MIT License <http://www.opensource.org/licenses/mit>
  */
 class User_Create_Table {
 
