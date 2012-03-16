@@ -22,10 +22,19 @@ class Auth_Controller extends Base_Controller {
 		{
 			View::share('title', 'Login');
 
-			// GET /login is not Forbidden (403) and should be served with 
-			// status 200, so we make a view of the form rather than serve
-			// a Response::error.  The only difference is the status code.
-			return View::make('auth/login');
+			$response = Response::view('auth/login');
+
+			// GET /login should be served with status 200 (OK) unless we have
+			// arrived here due to errors in completing the login form, in
+			// which case we serve status 409 (Conflict) and tell the user
+			// what is wrong.  Status 403 (Forbidden) is not appropriate since
+			// the login page itself is not a protected resource.
+			if (Session::has('errors'))
+			{
+				$response->status = 409;  // Conflict
+				$response->layout = true;
+			}
+			return $response;
 		}
 		else
 		{
@@ -40,22 +49,21 @@ class Auth_Controller extends Base_Controller {
 		{
 			$to = Input::has('from') ? URL::to(Input::get('from')) : URL::home();
 
-			return Redirect::to($to)->with('success', '<strong>Log in:</strong> Welcome!');
+			return Redirect::to($to, 303)->with('success', '<strong>Log in:</strong> Welcome!');
 		}
 		else
 		{
-			View::share('title', 'Login');
-			
 			$errors = new Laravel\Messages;
+			// We do not reveal where the error is just highlight that there is an error.
 			$errors->add('login', 'E-mail address or password are wrong, please try again.');
 			$errors->add('email', 'Error');
 			$errors->add('password', 'Error');
 
-			$response = Response::make(View::make('auth/login', array(
-				'errors' => $errors,
-			)), 403);
-			$response->layout = true;
-			return $response;
+			// Redirect back to where they came from, or if we don't know to the login page
+			$url = Input::has('from') ? Input::get('from') : URL::to_action('auth@login');
+			return Redirect::to($url, 303) // See Other
+				->with_input('except', array('password'))
+				->with_errors($errors);
 		}
 	}
 
