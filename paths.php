@@ -3,7 +3,7 @@
  * Laravel - A PHP Framework For Web Artisans
  *
  * @package  Laravel
- * @version  3.0.4
+ * @version  3.1.6
  * @author   Taylor Otwell <taylorotwell@gmail.com>
  * @link     http://laravel.com
  */
@@ -73,7 +73,10 @@ foreach ($paths as $name => $path)
 {
 	if ($web) $path = "../{$path}";
 
-	$GLOBALS['laravel_paths'][$name] = realpath($path).DS;
+	if ( ! isset($GLOBALS['laravel_paths'][$name]))
+	{
+		$GLOBALS['laravel_paths'][$name] = realpath($path).DS;
+	}
 }
 
 /**

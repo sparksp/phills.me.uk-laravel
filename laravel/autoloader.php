@@ -24,6 +24,13 @@ class Autoloader {
 	public static $namespaces = array();
 
 	/**
+	 * The mappings for underscored libraries to directories.
+	 *
+	 * @var array
+	 */
+	public static $underscored = array();
+
+	/**
 	 * All of the class aliases registered with the auto-loader.
 	 *
 	 * @var array
@@ -58,15 +65,43 @@ class Autoloader {
 
 		// If the class namespace is mapped to a directory, we will load the
 		// class using the PSR-0 standards from that directory accounting
-		// for the root of the namespace by trimming it.
-		if ( ! is_null($info = static::namespaced($class)))
+		// for the root of the namespace by trimming it off.
+		foreach (static::$namespaces as $namespace => $directory)
 		{
-			$class = substr($class, strlen($info['namespace']));
-
-			return static::load_psr($class, $info['directory']);
+			if (starts_with($class, $namespace))
+			{
+				return static::load_namespaced($class, $namespace, $directory);
+			}
 		}
 
+		// If the class uses PEAR-ish style underscores for indicating its
+		// directory structure we'll load the class using PSR-0 standards
+		// standards from that directory, trimming the root.
+		foreach (static::$underscored as $prefix => $directory)
+		{
+			if (starts_with($class, $prefix))
+			{
+				return static::load_namespaced($class, $prefix, $directory);
+			}
+		}
+
+		// If all else fails we will just iterator through the mapped
+		// PSR-0 directories looking for the class. This is the last
+		// resort and slowest loading option for the class.
 		static::load_psr($class);
+	}
+
+	/**
+	 * Load a namespaced class from a given directory.
+	 *
+	 * @param  string  $class
+	 * @param  string  $namespace
+	 * @param  string  $directory
+	 * @return void
+	 */
+	protected static function load_namespaced($class, $namespace, $directory)
+	{
+		return static::load_psr(substr($class, strlen($namespace)), $directory);
 	}
 
 	/**
@@ -99,23 +134,6 @@ class Autoloader {
 			elseif (file_exists($path = $directory.$file.EXT))
 			{
 				return require $path;
-			}
-		}
-	}
-
-	/**
-	 * Get the directory for a given namespaced class.
-	 *
-	 * @param  string  $class
-	 * @return string
-	 */
-	protected static function namespaced($class)
-	{
-		foreach (static::$namespaces as $namespace => $directory)
-		{
-			if (starts_with($class, $namespace))
-			{
-				return compact('namespace', 'directory');
 			}
 		}
 	}
@@ -164,17 +182,32 @@ class Autoloader {
 	 */
 	public static function underscored($mappings)
 	{
-		static::namespaces($mappings, '_');
+		$mappings = static::format_mappings($mappings, '_');
+
+		static::$underscored = array_merge($mappings, static::$underscored);
 	}
 
 	/**
 	 * Map namespaces to directories.
 	 *
-	 * @param  array   $mappings
-	 * @param  string  $append
+	 * @param  array  $mappings
 	 * @return void
 	 */
-	public static function namespaces($mappings, $append = '\\')
+	public static function namespaces($mappings)
+	{
+		$mappings = static::format_mappings($mappings, '\\');
+
+		static::$namespaces = array_merge($mappings, static::$namespaces);
+	}
+
+	/**
+	 * Format an array of namespace to directory mappings.
+	 *
+	 * @param  array   $mappings
+	 * @param  string  $append
+	 * @return array
+	 */
+	protected static function format_mappings($mappings, $append)
 	{
 		foreach ($mappings as $namespace => $directory)
 		{
@@ -188,11 +221,7 @@ class Autoloader {
 			$namespaces[$namespace] = head(static::format($directory));
 		}
 
-		// We'll array_merge the new mappings onto the front of the array so
-		// derivative namespaces are not always shadowed by their parents.
-		// For instance, when mappings Laravel\Docs, we don't want the
-		// main Laravel namespace to always override it.
-		static::$namespaces = array_merge($namespaces, static::$namespaces);
+		return $namespaces;
 	}
 
 	/**
