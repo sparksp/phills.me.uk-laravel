@@ -54,7 +54,7 @@ class Bundle {
 			$config = array('location' => $bundle);
 		}
 
-		// IF no location is set, we will set the location to match the name of
+		// If no location is set, we will set the location to match the name of
 		// the bundle. This is for bundles who are installed to the root of
 		// the bundle directory so a location was not set.
 		if ( ! isset($config['location']))
@@ -176,7 +176,7 @@ class Bundle {
 	/**
 	 * Determine which bundle handles the given URI.
 	 *
-	 * If no bundle is assigned to handle the URI, the default bundle is returned.
+	 * The default bundle is returned if no other bundle is assigned.
 	 *
 	 * @param  string  $uri
 	 * @return string
