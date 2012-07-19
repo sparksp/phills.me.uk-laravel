@@ -54,7 +54,13 @@
 
 <h1 class="page-header">Employment</h1>
 
-<h2>Developer, Cuttlefish Multimedia Ltd <small>2005 - Present</small></h2>
+<h2>Programmer, Bulb Studios Ltd <small>2012 - Present</small></h2>
+
+<div class="row"><div class="offset2 span10">
+	<p>I design and program back-end systems that support mobile applications and other web front-ends.  I also maintain a number of web and database servers for projects.</p>
+</div></div>
+
+<h2>Developer, Cuttlefish Multimedia Ltd <small>2005 - 2012</small></h2>
 
 <div class="row"><div class="offset2 span10">
 	<p>I have worked on a range of projects including implementing designs; building page structures; designing databases; writing APIs; and working with a wide variety of data sources.  I have helped Cuttlefish to develop their in-house CMSs and Frameworks; adding new and extending existing features; and especially enabling new ways of reading data in and sharing data out.  I support the projects I have developed after launch and regularly recommend improvements.</p>
@@ -119,7 +125,11 @@
 
 <h1 class="page-header">Volunteering Experience</h1>
 
-<h2>(Assistant) Scout Leader, 1st Sapcote Scouts <small>2009 - Present</small></h2>
+<h2>County Scout Network Leader, Leicestershire Scouts <small>2012 - Present</small></h2>
+
+<h2>County Scout Network Leader, Hinckley Unit <small>2011 - 2012</small></h2>
+
+<h2>(Assistant) Scout Leader, 1st Sapcote Scouts <small>2009 - 2012</small></h2>
 
 <div class="row"><div class="offset2 span10">
 	<p>Since 2009 I have been Assistant Scout Leader and Scout Leader for the 1st Sapcote Scouts.  During this time I have completed my leader training and been awarded my <a href="http://www.scouts.org.uk/woodbadge">Wood Badge</a>.  I have helped to grow the section from a low of 2 scouts up to 9 scouts at the start of 2012.</p>
@@ -129,7 +139,7 @@
 
 <div class="row"><div class="offset2 span10">
 
-	<p>In 2009 I started to help with climbing sessions at the local scout campsite and since then have worked hard to become a qualified Scout and Guide climbing instructor.  I continue working toward gaining the <a href="http://www.mltuk.org/spa.php">Single Pitch Award</a> that will enable me to take groups out on rock.</p>
+	<p>In 2009 I started to help with climbing sessions at the local scout campsite and since then have worked hard to become a qualified Scout and Guide climbing instructor.  I continue working toward gaining the <a href="http://www.mountain-training.org/award-schemes/climbing-wall-award">Climbing Wall Award</a> that will enable me to take groups indoor, and the <a href="http://www.mountain-training.org/award-schemes/single-pitch-award">Single Pitch Award</a> that will enable me to take groups out on rock.</p>
 
 	<p>I run climbing, abseiling and crate stacking sessions for groups.  I also train young instructors from no experience up to basic scout/guide qualified level.</p>
 
