@@ -125,7 +125,7 @@
 
 <h1 class="page-header">Volunteering Experience</h1>
 
-<h2>County Scout Network Leader, Leicestershire Scouts <small>2012 - Present</small></h2>
+<h2>County Scout Network Commissioner, Leicestershire Scouts <small>2012 - Present</small></h2>
 
 <h2>County Scout Network Leader, Hinckley Unit <small>2011 - 2012</small></h2>
 
