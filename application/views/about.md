@@ -15,22 +15,19 @@
 
 <div class="row"><div class="offset2 span5">
 	<h2>Programming</h2>
-
-  <h3>Back-end</h3>
-  <ul>
-    <li>Ruby on Rails</li>
-    <li>PostgreSQL / MySQL / SQLite</li>
-    <li>Redis / Memcached</li>
-    <li>Sidekiq</li>
-    <li>RSpec</li>
-  </ul>
+		<li>Ruby on Rails</li>
+		<li>PostgreSQL / MySQL / SQLite</li>
+		<li>Redis / Memcached</li>
+		<li>Sidekiq</li>
+		<li>RSpec</li>
+	</ul>
 </div><div class="span5">
 	<h2>Software</h2>
 	<ul>
-    <li>Vim</li>
+		<li>Vim</li>
 		<li>Nginx (and some Apache / Lighttpd)</li>
 		<li>Git (and some SVN)</li>
-    <li>Capistrano</li>
+		<li>Capistrano</li>
 	</ul>
 </div></div>
 
@@ -45,7 +42,7 @@
 <h2>Programmer, <a href="http://bulbstudios.com/">Bulb Studios Ltd</a> <small>2012 - 2013</small></h2>
 
 <div class="row"><div class="offset2 span10">
-	<p>I designed and wrote back-end systems that support mobile applications and other web front-ends.</p>
+	<p>I developed APIs and back end systems to support mobile applications and client facing websites. I worked with front end developers, mobile developers and designers to ensure a joined up approach to project work. I liaised with external companies regarding hardware requirements and manage a varying number of servers hosting the company’s projects.</p>
 </div></div>
 
 <h2>Developer, <a href="http://cuttlefish.com/">Cuttlefish Multimedia Ltd</a> <small>2005 - 2012</small></h2>
@@ -115,7 +112,15 @@
 
 <h2>County Scout Network Commissioner, Leicestershire Scouts <small>2012 - Present</small></h2>
 
+<div class="row"><div class="offset2 span10">
+	<p>After 18 months as a County Scout Network Leader, I took the step up to Commissioner where I manage the other Network Leaders and support the Network Chairman. I attend County Scout Executive meetings and work to grow and develop Scout Network in the county by creating new opportunities for young people to engage with Scout Network.</p>
+</div></div>
+
 <h2>County Scout Network Leader, Hinckley Unit <small>2011 - 2012</small></h2>
+
+<div class="row"><div class="offset2 span10">
+	<p>I setup the Network in Hinckley Area, forming links with local groups and Explorer units.</p>
+</div></div>
 
 <h2>(Assistant) Scout Leader, 1st Sapcote Scouts <small>2009 - 2012</small></h2>
 
@@ -123,7 +128,7 @@
 	<p>From 2009 - 2012 I was Assistant Scout Leader and then Scout Leader for the 1st Sapcote Scouts.  During this time I completed my leader training and was awarded the <a href="http://www.scouts.org.uk/woodbadge">Wood Badge</a>.  I helped to grow the section from a low of 2 scouts up to 9 scouts at the start of 2012.  The section continues to grow under new leadership.</p>
 </div></div>
 
-<h2>Climbing Instructor <small>2009 - Present</small></h2>
+<h2>Climbing Instructor &amp; Manager <small>2009 - Present</small></h2>
 
 <div class="row"><div class="offset2 span10">
 
