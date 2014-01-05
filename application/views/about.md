@@ -13,41 +13,24 @@
 
 <h1 class="page-header">Technical Skills</h1>
 
-<div class="row"><div class="offset2 span10">
+<div class="row"><div class="offset2 span5">
 	<h2>Programming</h2>
 
-	<div class="row"><div class="span3">
-		<h3>Back-end</h3>
-		<ul>
-			<li>MySQL / SQLite</li>
-			<li>PHP</li>
-		</ul>
-	</div><div class="span3">
-		<h3>Front-end</h3>
-		<ul>
-			<li>CSS, HTML and JavaScript</li>
-		</ul>
-	</div><div class="span3">
-		<h3>Learning</h3>
-		<ul>
-			<li>Java (Android)</li>
-		</ul>
-	</div></div>
-</div></div>
-
-<div class="row"><div class="offset2 span6">
+  <h3>Back-end</h3>
+  <ul>
+    <li>Ruby on Rails</li>
+    <li>PostgreSQL / MySQL / SQLite</li>
+    <li>Redis / Memcached</li>
+    <li>Sidekiq</li>
+    <li>RSpec</li>
+  </ul>
+</div><div class="span5">
 	<h2>Software</h2>
 	<ul>
-		<li>Adobe Fireworks (and basic Photoshop / Illustrator)</li>
-		<li>Apache and Nginx (and some Lighttpd)</li>
+    <li>Vim</li>
+		<li>Nginx (and some Apache / Lighttpd)</li>
 		<li>Git (and some SVN)</li>
-	</ul>
-</div><div class="span4">
-	<h2>Operating Systems</h2>
-	<ul>
-		<li>Linux (desktop and mainly server)</li>
-		<li>Mac OS X</li>
-		<li>Windows 3.1 &ndash; XP</li>
+    <li>Capistrano</li>
 	</ul>
 </div></div>
 
@@ -62,7 +45,7 @@
 <h2>Programmer, <a href="http://bulbstudios.com/">Bulb Studios Ltd</a> <small>2012 - 2013</small></h2>
 
 <div class="row"><div class="offset2 span10">
-	<p>I designed and write back-end systems that support mobile applications and other web front-ends.</p>
+	<p>I designed and wrote back-end systems that support mobile applications and other web front-ends.</p>
 </div></div>
 
 <h2>Developer, <a href="http://cuttlefish.com/">Cuttlefish Multimedia Ltd</a> <small>2005 - 2012</small></h2>
@@ -137,19 +120,19 @@
 <h2>(Assistant) Scout Leader, 1st Sapcote Scouts <small>2009 - 2012</small></h2>
 
 <div class="row"><div class="offset2 span10">
-	<p>Since 2009 I have been Assistant Scout Leader and Scout Leader for the 1st Sapcote Scouts.  During this time I have completed my leader training and been awarded my <a href="http://www.scouts.org.uk/woodbadge">Wood Badge</a>.  I have helped to grow the section from a low of 2 scouts up to 9 scouts at the start of 2012.  The section continues to grow under new leadership.</p>
+	<p>From 2009 - 2012 I was Assistant Scout Leader and then Scout Leader for the 1st Sapcote Scouts.  During this time I completed my leader training and was awarded the <a href="http://www.scouts.org.uk/woodbadge">Wood Badge</a>.  I helped to grow the section from a low of 2 scouts up to 9 scouts at the start of 2012.  The section continues to grow under new leadership.</p>
 </div></div>
 
 <h2>Climbing Instructor <small>2009 - Present</small></h2>
 
 <div class="row"><div class="offset2 span10">
 
-	<p>In 2009 I started to help with climbing sessions at the local scout campsite and since then have worked hard to become a qualified Scout and Guide climbing instructor.  In 2012 I gained the <a href="http://www.mountain-training.org/award-schemes/cwa">Climbing Wall Award</a> that enables me to take groups climbing indoor.  Now I continue working toward gaining the <a href="http://www.mountain-training.org/award-schemes/cwla">Climbing Wall Leading Award</a> that will enable me to teach lead climbing indoors, and the <a href="http://www.mountain-training.org/award-schemes/spa">Single Pitch Award</a> that will enable me to take groups out on rock.  In 2013 I attended a BMC <a href="http://www.thebmc.co.uk/fundamentals-of-climbing-1">FUNdamentals of Climbing 1</a> course and look forward to attending further FUNdamentals courses in the future.</p>
+	<p>In 2009 I started to help with climbing sessions at the local scout campsite and since then have worked hard to become a qualified Scout and Guide climbing instructor.  In 2012 I gained the <a href="http://www.mountain-training.org/award-schemes/cwa">Climbing Wall Award</a> that enables me to take groups climbing indoor, and in 2013 I completed the <a href="http://www.mountain-training.org/award-schemes/spa">Single Pitch Award</a> that enables me to take groups out on rock.  Now I continue working toward gaining the <a href="http://www.mountain-training.org/award-schemes/cwla">Climbing Wall Leading Award</a> that will enable me to teach lead climbing indoors, and the new <a href="http://www.mountain-training.org/award-schemes/coaching-scheme">Coaching Scheme</a> to further develop my coaching abilities.  In 2013 I also attended two of the BMC <a href="http://www.thebmc.co.uk/fundamentals-of-climbing-1">FUNdamentals of Climbing</a> workshops and look forward to attending the third in the future.</p>
 
-	<p>I run climbing, abseiling and crate stacking sessions for groups.  I also train young instructors from no experience up to basic scout/guide qualified level.</p>
+	<p>I manage the climbing team at <a href="http://www.foxcoverts.co.uk">Fox Coverts Scout Campsite</a>, where I run climbing and abseiling sessions for groups, and train new instructors from any experience up to scout/guide qualified level.  I also instruct a variety of sessions at <a href="http://www.theclimbingstation.com">The Climbing Station</a> and <a href="http://www.thetowerclimbingcentre.co.uk">The Tower Climbing Centre</a> in Leicestershire.</p>
 
 	<h3>Qualifications</h3>
-	<p>MTUK: <strong>Climbing Wall Award</strong></p>
+	<p>MTUK: <strong>Single Pitch Award</strong> and <strong>Climbing Wall Award</strong></p>
 	<p>Scouts: <strong>Climbing (Single Pitch) Top Rope</strong> - Leadership and Supervisory</p>
 	<p>Guides: <strong>Level 1 Climbing and Abseiling</strong></p>
 
