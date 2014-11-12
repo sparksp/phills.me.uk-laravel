@@ -39,7 +39,7 @@ Route::get('/', function()
 	return Redirect::to('about');
 });
 
-Route::get('(about)',   'sparkdown::page@show');
+Route::get('about', 'about@index');
 Route::get('(cookies)', 'sparkdown::page@show');
 
 Route::get('web', function()
